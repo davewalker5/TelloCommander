@@ -191,6 +191,10 @@ Further information on the commands available and how to use the API to build yo
 
 - **Dave Walker** - *Initial work* - [LinkedIn](https://www.linkedin.com/in/davewalker5/)
 
+## Feedback
+
+To file issues or suggestions, please use the [Issues](issues) page for this project on GitHub.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
