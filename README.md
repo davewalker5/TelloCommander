@@ -21,7 +21,7 @@ This documentation demonstrates use of the .NET command line, rather than an IDE
 
 To build the API and test applications, open a terminal window, change to the "src" folder of your working copy and run the following:
 
-```shell
+```
 dotnet restore TelloCommander.sln
 dotnet build TelloCommander.sln
 ```
@@ -30,7 +30,7 @@ dotnet build TelloCommander.sln
 
 To run the unit tests, open a terminal window, change to the "src" folder of your working copy and run the following:
 
-```shell
+```
 dotnet test TelloCommander.sln
 ```
 
@@ -40,13 +40,13 @@ dotnet test TelloCommander.sln
 
 To run the demonstration/test application, open a terminal window, change to the folder containing the compiled output for the TelloCommander.TestApp project and run the following command:
 
-```shell
+```
 TelloCommander.TestApp
 ```
 
 The following will be displayed:
 
-```shell
+```
 Tello Commander 1.0.0.0
 
 Dictionary Version:
@@ -70,7 +70,7 @@ The dictionary (or API) version determines the set of commands available to run.
 
 Once you have selected the API version, you are prompted to enter the required connection type:
 
-```shell
+```
 Connection:
 
 [1] Mock connection
@@ -92,7 +92,7 @@ If you're connecting to a drone, switch it on and connect to its WiFi before ent
 
 Once a connection type's been entered, the test application will respond as follows, indicating it's connected and ready to receive and send commands:
 
-```shell
+```
 You are connected to the Tello in API mode
 
 Enter command or hit ENTER to quit :
@@ -102,7 +102,7 @@ Enter command or hit ENTER to quit :
 
 The test application repeatedly prompts for and sends commands, echoing the reponse from the connection, until instructed to stop. For example:
 
-```shell
+```
 Enter command or hit ENTER to quit : takeoff
 Command : takeoff
 Response: ok
@@ -135,19 +135,19 @@ Unlike the mock connection (see above), it tests a real connection from the test
 
 To run the simulator, open a terminal window, change to the folder containing the compiled output for the TelloSimulator project and run the following command:
 
-```shell
+```
 TelloSimulator <version>
 ```
 
 Where "version" is one of the supported API versions (see above). For example:
 
-```shell
+```
 TelloSimulator 1.3.0.0
 ```
 
 The following will be displayed, indicating the simulator has started and is ready to receive commands:
 
-```shell
+```
 Tello Simulator 1.0.0.0
 Using API/dictionary version 1.3.0.0
 Listening on port 8889
@@ -157,7 +157,7 @@ Listening on port 8889
 
 When an incoming command is received from the test application, the simulator responds by echoing the command and the response to the console:
 
-```shell
+```
 Received command
 Response ok
 Received takeoff
@@ -170,13 +170,13 @@ Response ok
 
 To stop the simulator from the test application, just enter the following command in a connected test application:
 
-```shell
+```
 stopsimulator
 ```
 
 The simulator will respond as follows and will then exit, returning to the terminal prompt:
 
-```shell
+```
 Received stopsimulator
 Response ok
 ```
