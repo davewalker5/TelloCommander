@@ -193,7 +193,7 @@ Further information on the commands available and how to use the API to build yo
 
 ## Feedback
 
-To file issues or suggestions, please use the [Issues](issues) page for this project on GitHub.
+To file issues or suggestions, please use the [Issues](https://github.com/davewalker5/TelloCommander/issues) page for this project on GitHub.
 
 ## License
 
