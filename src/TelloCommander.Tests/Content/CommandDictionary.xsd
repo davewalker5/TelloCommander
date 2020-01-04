@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CommandDictionary" nillable="true" type="CommandDictionary" />
+  <xs:complexType name="CommandDictionary">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Commands" type="ArrayOfCommandDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCommandDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="CommandDefinition" nillable="true" type="CommandDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CommandDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ConnectionType" type="ConnectionType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ResponseType" type="ResponseType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsCustomCommand" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MockResponse" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Arguments" type="ArrayOfArgumentDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ConnectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mock" />
+      <xs:enumeration value="Simulator" />
+      <xs:enumeration value="Drone" />
+      <xs:enumeration value="Any" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResponseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Dictionary" />
+      <xs:enumeration value="Number" />
+      <xs:enumeration value="Range" />
+      <xs:enumeration value="OK" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfArgumentDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArgumentDefinition" nillable="true" type="ArgumentDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArgumentDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ArgumentType" type="ArgumentType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Required" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Minimum" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Maximum" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AllowedValues" type="ArrayOfString" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ArgumentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Number" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

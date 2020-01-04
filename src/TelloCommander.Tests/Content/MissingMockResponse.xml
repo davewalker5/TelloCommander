@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandDictionary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Commands>
+    <CommandDefinition>
+      <Name>command</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <Arguments />
+    </CommandDefinition>
+  </Commands>
+</CommandDictionary>

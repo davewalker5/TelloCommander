@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandDictionary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Commands>
+    <CommandDefinition>
+      <Name>move</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>direction</Name>
+          <ArgumentType>String</ArgumentType>
+          <Required>false</Required>
+          <Minimum xsi:nil="true" />
+          <Maximum xsi:nil="true" />
+          <AllowedValues>
+            <string>l</string>
+            <string>r</string>
+            <string>b</string>
+            <string>f</string>
+          </AllowedValues>
+        </ArgumentDefinition>
+        <ArgumentDefinition>
+          <Name>distance</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+  </Commands>
+</CommandDictionary>

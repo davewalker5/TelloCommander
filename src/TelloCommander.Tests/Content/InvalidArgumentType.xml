@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandDictionary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Commands>
+    <CommandDefinition>
+      <Name>up</Name>
+      <ResponseType>OK</ResponseType>
+      <ConnectionType>Any</ConnectionType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>distance</Name>
+          <ArgumentType>Not a Valid Argument Type</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+  </Commands>
+</CommandDictionary>

@@ -1,0 +1,130 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <ReleaseVersion>1.0.0</ReleaseVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
+    <PackageReference Include="coverlet.collector" Version="1.2.0"><IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+<PrivateAssets>all</PrivateAssets>
+</PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TelloCommander\TelloCommander.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Content\tello.txt" />
+    <None Remove="Content\CommandDictionary.xsd" />
+    <None Remove="Content\CommandDictionary-1.3.0.0.xml" />
+    <None Remove="Content\EmptyDictionary.xml" />
+    <None Remove="Content\EmptyCommandsSection.xml" />
+    <None Remove="Content\EmptyCommandDefinition.xml" />
+    <None Remove="Content\MissingCommandName.xml" />
+    <None Remove="Content\MissingResponseType.xml" />
+    <None Remove="Content\MissingIsCustomCommand.xml" />
+    <None Remove="Content\MissingMockResponse.xml" />
+    <None Remove="Content\MissingArguments.xml" />
+    <None Remove="Content\InvalidResponseType.xml" />
+    <None Remove="Content\MissingArgumentName.xml" />
+    <None Remove="Content\MissingArgumentType.xml" />
+    <None Remove="Content\InvalidArgumentType.xml" />
+    <None Remove="Content\MissingMinimumValue.xml" />
+    <None Remove="Content\MissingMaximumValue.xml" />
+    <None Remove="Content\MissingAllowedValues.xml" />
+    <None Remove="Content\MissingRequired.xml" />
+    <None Remove="Content\OptionalArgumentPositionError.xml" />
+    <None Remove="Content\InvalidArgumentValueRange.xml" />
+    <None Remove="Content\MissingResponseType %28copy%29.xml" />
+    <None Remove="Content\InvalidResponseType %28copy%29.xml" />
+    <None Remove="Content\CommandDictionary-2.0.0.0.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\tello.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\CommandDictionary.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\CommandDictionary-1.3.0.0.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EmptyDictionary.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EmptyCommandsSection.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EmptyCommandDefinition.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingCommandName.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingResponseType.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingIsCustomCommand.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingMockResponse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingArguments.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\InvalidResponseType.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingArgumentName.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingArgumentType.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\InvalidArgumentType.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingMinimumValue.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingMaximumValue.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingAllowedValues.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingRequired.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\OptionalArgumentPositionError.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\InvalidArgumentValueRange.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MissingConnectionType.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\InvalidConnectionType.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\CommandDictionary-2.0.0.0.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Content\EmptyCommandDefinition.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

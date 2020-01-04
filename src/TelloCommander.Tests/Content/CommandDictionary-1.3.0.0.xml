@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandDictionary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Commands>
+    <CommandDefinition>
+      <Name>command</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>takeoff</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>land</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>emergency</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>streamon</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>streamoff</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>up</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>distance</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>down</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>distance</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>forward</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>distance</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>back</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>distance</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>left</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>distance</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>right</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>distance</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>cw</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>angle</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>1</Minimum>
+          <Maximum>360</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>ccw</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>angle</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>1</Minimum>
+          <Maximum>360</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>flip</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>direction</Name>
+          <ArgumentType>String</ArgumentType>
+          <Required>true</Required>
+          <Minimum xsi:nil="true" />
+          <Maximum xsi:nil="true" />
+          <AllowedValues>
+            <string>l</string>
+            <string>r</string>
+            <string>b</string>
+            <string>f</string>
+          </AllowedValues>
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>go</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>x</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+        <ArgumentDefinition>
+          <Name>y</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+        <ArgumentDefinition>
+          <Name>z</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+        <ArgumentDefinition>
+          <Name>speed</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>10</Minimum>
+          <Maximum>100</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>curve</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>x1</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+        <ArgumentDefinition>
+          <Name>y1</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+        <ArgumentDefinition>
+          <Name>z1</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+        <ArgumentDefinition>
+          <Name>x2</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+        <ArgumentDefinition>
+          <Name>y2</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+        <ArgumentDefinition>
+          <Name>z2</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>20</Minimum>
+          <Maximum>500</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+        <ArgumentDefinition>
+          <Name>speed</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>10</Minimum>
+          <Maximum>100</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>speed</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>speed</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>10</Minimum>
+          <Maximum>100</Maximum>
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>acceleration?</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>Dictionary</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>agx:0.00;agy:0.00;agz:0.00;</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>attitude?</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>Dictionary</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>pitch:0;roll:0;yaw:0;</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>baro?</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>Number</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>117.498672</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>battery?</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>Number</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>100</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>speed?</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>Number</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>0</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>temp?</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>Range</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>65~66C</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>time?</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>Number</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>0s</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>height?</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>Number</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>0dm</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>tof?</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>Number</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>100mm</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>wifi?</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>Number</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>90</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>wait</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>true</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>seconds</Name>
+          <ArgumentType>Number</ArgumentType>
+          <Required>true</Required>
+          <Minimum>1</Minimum>
+          <Maximum xsi:nil="true" />
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>runscript</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>None</ResponseType>
+      <IsCustomCommand>true</IsCustomCommand>
+      <MockResponse />
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>file</Name>
+          <ArgumentType>String</ArgumentType>
+          <Required>true</Required>
+          <Minimum xsi:nil="true" />
+          <Maximum xsi:nil="true" />
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>history</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>None</ResponseType>
+      <IsCustomCommand>true</IsCustomCommand>
+      <MockResponse />
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>writehistory</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>None</ResponseType>
+      <IsCustomCommand>true</IsCustomCommand>
+      <MockResponse />
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>file</Name>
+          <ArgumentType>String</ArgumentType>
+          <Required>true</Required>
+          <Minimum xsi:nil="true" />
+          <Maximum xsi:nil="true" />
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>forcefail</Name>
+      <ConnectionType>Mock</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>true</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>sendtimeout</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>true</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>file</Name>
+          <ArgumentType>String</ArgumentType>
+          <Required>true</Required>
+          <Minimum>0</Minimum>
+          <Maximum xsi:nil="true" />
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>receivetimeout</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>true</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>file</Name>
+          <ArgumentType>String</ArgumentType>
+          <Required>true</Required>
+          <Minimum>0</Minimum>
+          <Maximum xsi:nil="true" />
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>responsedelay</Name>
+      <ConnectionType>Simulator</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>true</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>file</Name>
+          <ArgumentType>String</ArgumentType>
+          <Required>true</Required>
+          <Minimum>1</Minimum>
+          <Maximum xsi:nil="true" />
+          <AllowedValues />
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
+    <CommandDefinition>
+      <Name>stopsimulator</Name>
+      <ConnectionType>Simulator</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>true</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments />
+    </CommandDefinition>
+  </Commands>
+</CommandDictionary>

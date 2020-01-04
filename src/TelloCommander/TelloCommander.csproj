@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>TelloCommander</PackageId>
+    <ReleaseVersion>1.0.0</ReleaseVersion>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Dave Walker</Authors>
+    <Copyright>Copyright (c) 2020 Dave Walker</Copyright>
+    <Owners>Dave Walker</Owners>
+    <PackageProjectUrl>https://github.com/davewalker5/TelloCommander</PackageProjectUrl>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Summary>C# API for controlling a Tello drone</Summary>
+    <PackageTags>Tello API</PackageTags>
+    <Title>TelloCommand</Title>
+    <Description>C# API for controlling a Tello drone</Description>
+    <PackOnBuild>true</PackOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Simulator\" />
+    <Folder Include="CommandDictionaries\" />
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Content\CommandDictionary-1.3.0.0.xml" />
+    <None Remove="Content\CommandDictionary.xsd" />
+    <None Remove="Content\CommandDictionary-1.3.0 %28copy%29.0.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\CommandDictionary-1.3.0.0.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\CommandDictionary.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\CommandDictionary-2.0.0.0.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
