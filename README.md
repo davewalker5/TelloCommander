@@ -28,7 +28,7 @@ dotnet build TelloCommander.sln
 
 ## Running the Unit Tests
 
-T0 run the unit tests, open a terminal window, change to the "src" folder of your working copy and run the following:
+To run the unit tests, open a terminal window, change to the "src" folder of your working copy and run the following:
 
 ```shell
 dotnet test TelloCommander.sln
@@ -59,7 +59,7 @@ Please enter your option between 1 and 2 or enter 0 to quit:
 
 ### Selecting an API Version
 
-The dictionary (or API) version determins the set of commands available to run. For mock or simulator connections (see below), any version can be used but for connection to a real drone it's important to choose the  correct version:
+The dictionary (or API) version determines the set of commands available to run. For mock or simulator connections (see below), any version can be used but for connection to a real drone it's important to choose the  correct version:
 
 | Drone | Version |
 |  --- | --- |
@@ -68,7 +68,7 @@ The dictionary (or API) version determins the set of commands available to run. 
 
 ### Selecting a Connection Type
 
-Once you have delected the API version, you are prompted to enter the required connection type:
+Once you have selected the API version, you are prompted to enter the required connection type:
 
 ```shell
 Connection:
