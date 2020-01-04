@@ -21,4 +21,4 @@ To file issues or suggestions, please use the [Issues](https://github.com/davewa
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
