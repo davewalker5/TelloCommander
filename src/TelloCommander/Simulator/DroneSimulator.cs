@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Connections;
-using TelloCommander.Interfaces;
 
 namespace TelloCommander.Simulator
 {
+    [ExcludeFromCodeCoverage]
     public class DroneSimulator
     {
         private const int TimeoutMilliseconds = 5000;
