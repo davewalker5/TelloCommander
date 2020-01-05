@@ -1,6 +1,6 @@
 # TelloCommander
 
-https://github.com/davewalker5/TelloCommander/workflows/.NET%20Core%20CI%20Build/badge.svg
+![](https://github.com/davewalker5/TelloCommander/workflows/.NET%20Core%20CI%20Build/badge.svg)
 
 ## Table of Contents
 
