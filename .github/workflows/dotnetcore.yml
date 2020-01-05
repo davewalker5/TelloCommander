@@ -14,6 +14,6 @@ jobs:
       with:
         dotnet-version: 3.0.100
     - name: Build with dotnet
-      run: dotnet build --configuration Release TelloCommander.sln
+      run: dotnet build --configuration Release src/TelloCommander.sln
     - name: Run unit tests with dotnet
-      run: dotnet test TelloCommander.sln
+      run: dotnet test src/TelloCommander.sln
