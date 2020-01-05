@@ -14,7 +14,7 @@
 * [The demonstration application](https://github.com/davewalker5/TelloCommander/wiki/Demonstration-Application)
 * [The drone simulator](https://github.com/davewalker5/TelloCommander/wiki/Drone-Simulator)
 * [Command dictionaries](https://github.com/davewalker5/TelloCommander/wiki/Command-Dictionaries)
-* [Custom commands](https://github.com/davewalker5/TelloCommander/wiki/Custom-Commands)
+* [Custom commands and scripting](https://github.com/davewalker5/TelloCommander/wiki/Custom-Commands-And-Scripting)
 * [Creating applications using the API](https://github.com/davewalker5/TelloCommander/wiki/Creating-Applications-With-the-Api)
 * [Streaming Video](https://github.com/davewalker5/TelloCommander/wiki/Streaming-Video)
 
