@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Interfaces;
 
 namespace TelloCommander.Commander
 {
+    [ExcludeFromCodeCoverage]
     public class ConsoleCommander : DroneCommander
     {
         public ConsoleCommander(ITelloConnection connection, CommandDictionary dictionary) : base(connection, dictionary)
