@@ -18,6 +18,19 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
+        public void EmergencyStopTest()
+        {
+            Assert.AreEqual(0, _drone.Height);
+            string response = _drone.ConstructCommandResponse("takeoff");
+            Assert.AreEqual("ok", response);
+            Assert.IsTrue(_drone.Height > 0);
+
+            response = _drone.ConstructCommandResponse("emergency");
+            Assert.AreEqual("ok", response);
+            Assert.AreEqual(0, _drone.Height);
+        }
+
+        [TestMethod]
         public void StopSimulatorTest()
         {
             Assert.IsFalse(_drone.Stop);
