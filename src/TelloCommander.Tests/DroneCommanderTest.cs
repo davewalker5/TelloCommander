@@ -23,6 +23,17 @@ namespace TelloCommander.Tests
             _commander = new DroneCommander(_connection, dictionary);
         }
 
+        [TestMethod]
+        public void GetVersionTest()
+        {
+            string[] words = DroneCommander.Version.Split(new char[] { '.' });
+            Assert.AreEqual(4, words.Length);
+            foreach (string word in words)
+            {
+                Assert.IsTrue(int.TryParse(word, out int value));
+            }
+        }
+
         /// <summary>
         /// Condirm that the specified record in the history ends with the specified text
         /// </summary>
@@ -30,7 +41,28 @@ namespace TelloCommander.Tests
         /// <param name="text"></param>
         private void AssertHistoryEndsWith(int index, string text)
         {
-            Assert.IsTrue(_commander.History[index].EndsWith(text, StringComparison.CurrentCulture));        }
+            Assert.IsTrue(_commander.History[index].EndsWith(text, StringComparison.CurrentCulture));
+        }
+
+        [TestMethod]
+        public void ConnectTest()
+        {
+            _commander.Connect();
+
+            Assert.AreEqual(2, _commander.History.Count);
+            Assert.IsTrue(_commander.History[0].Contains("Tello Commander Version"));
+            Assert.IsTrue(_commander.History[0].Contains(DroneCommander.Version));
+            Assert.IsTrue(_commander.History[1].Contains("Connected to the drone in API mode"));
+        }
+
+        [TestMethod]
+        public void DisconnectTest()
+        {
+            _commander.Disconnect();
+
+            Assert.AreEqual(1, _commander.History.Count);
+            Assert.IsTrue(_commander.History[0].Contains("Disconnected"));
+        }
 
         [TestMethod]
         public void RunCommandTest()
@@ -121,6 +153,30 @@ namespace TelloCommander.Tests
         public void RunScriptTest()
         {
             string script = Path.Combine("Content", "tello.txt");
+            _commander.RunScript(script);
+
+            // The history for running a script has extra "Script Folder" and "Start Script"
+            // entries at the beginning and an extra "End Script" entry at the end. The test
+            // script looks like this:
+            //
+            // takeoff
+            // land
+            //
+            Assert.AreEqual("ok", _commander.LastResponse);
+            Assert.AreEqual(7, _commander.History.Count);
+            Assert.IsTrue(_commander.History[0].Contains("Script Folder"));
+            Assert.IsTrue(_commander.History[1].Contains("Start Script"));
+            AssertHistoryEndsWith(2, "takeoff");
+            AssertHistoryEndsWith(3, "ok");
+            AssertHistoryEndsWith(4, "land");
+            AssertHistoryEndsWith(5, "ok");
+            Assert.IsTrue(_commander.History[6].Contains("End Script"));
+        }
+
+        [TestMethod]
+        public void RunScriptCommandTest()
+        {
+            string script = Path.Combine("Content", "tello.txt");
             _commander.RunCommand($"runscript {script}");
 
             // The history for running a script has extra "Script Folder" and "Start Script"
@@ -167,6 +223,29 @@ namespace TelloCommander.Tests
             Assert.AreEqual(2, history.Length);
             AssertHistoryEndsWith(0, "takeoff");
             AssertHistoryEndsWith(1, "ok");
+        }
+
+        [TestMethod]
+        public void WriteHistoryCommandTest()
+        {
+            string file = Path.GetTempFileName();
+            _commander.RunCommand("takeoff");
+            _commander.RunCommand($"writehistory {file}");
+            string[] history = File.ReadLines(file).ToArray();
+            File.Delete(file);
+
+            Assert.AreEqual(2, history.Length);
+            AssertHistoryEndsWith(0, "takeoff");
+            AssertHistoryEndsWith(1, "ok");
+        }
+
+        [TestMethod]
+        public void ForceFailCommandTest()
+        {
+            _commander.RunCommand("forcefail");
+            _commander.RunCommand("takeoff");
+
+            Assert.IsTrue(_commander.LastResponse.Contains("force-failed"));
         }
     }
 }
