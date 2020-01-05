@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TelloCommander.Exceptions
 {
     [Serializable]
+    [ExcludeFromCodeCoverage]
     public class ValueOutOfRangeException : Exception
     {
         public ValueOutOfRangeException()

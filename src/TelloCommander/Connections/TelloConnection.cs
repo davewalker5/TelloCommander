@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using TelloCommander.CommandDictionaries;
@@ -6,6 +7,7 @@ using TelloCommander.Interfaces;
 
 namespace TelloCommander.Connections
 {
+    [ExcludeFromCodeCoverage]
     public class TelloConnection : ITelloConnection
     {
         public const string DefaultTelloAddress = "192.168.10.1";
