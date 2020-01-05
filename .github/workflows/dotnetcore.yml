@@ -13,7 +13,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.0.100
-    - name: Build with dotnet
+    - name: Build
       run: dotnet build --configuration Release src/TelloCommander.sln
-    - name: Run unit tests with dotnet
-      run: dotnet test src/TelloCommander.sln
+    - name: Run unit tests and generate code coverage
+      run: dotnet test src/TelloCommander.sln /p:CollectCoverage=true /p:CoverletOutput=coverage/ /p:CoverletOutputFormat=lcov
+    - name: Generage Coveralls code coverage
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: src/TelloCommander.Tests/coverage/coverage.info 
