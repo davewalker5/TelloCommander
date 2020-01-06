@@ -45,6 +45,14 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
+        public void GetLastResponseTest()
+        {
+            _commander.Connect();
+            _commander.RunCommand("takeoff");
+            Assert.AreEqual("ok", _commander.LastResponse);
+        }
+
+        [TestMethod]
         public void ConnectTest()
         {
             _commander.Connect();
@@ -58,6 +66,8 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void DisconnectTest()
         {
+            _commander.Connect();
+            _commander.History.Clear();
             _commander.Disconnect();
 
             Assert.AreEqual(1, _commander.History.Count);
@@ -67,6 +77,8 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void RunCommandTest()
         {
+            _commander.Connect();
+            _commander.History.Clear();
             _commander.RunCommand("takeoff");
 
             Assert.AreEqual("ok", _commander.LastResponse);
@@ -78,6 +90,8 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void RunCommandWithErrorResponseTest()
         {
+            _commander.Connect();
+            _commander.History.Clear();
             _commander.RunCommand("takeoff");
             _connection.ForceFail = true;
             _commander.RunCommand("cw 180");
@@ -106,7 +120,9 @@ namespace TelloCommander.Tests
         [TestMethod, ExpectedException(typeof(TooLowToMoveDownException))]
         public void MoveDownTooFarTest()
         {
+            _commander.Connect();
             _commander.RunCommand("takeoff");
+
             for (int i  = 0; i < 5; i++)
             {
                 _commander.RunCommand("up 50");
@@ -121,6 +137,7 @@ namespace TelloCommander.Tests
         [TestMethod, ExpectedException(typeof(InvalidArgumentException))]
         public void MoveDownInvalidAmountTest()
         {
+            _commander.Connect();
             _commander.RunCommand("takeoff");
             _commander.RunCommand("down invalid");
         }
@@ -128,30 +145,9 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void RunScriptTest()
         {
-            string script = Path.Combine("Content", "tello.txt");
-            _commander.RunScript(script);
+            _commander.Connect();
+            _commander.History.Clear();
 
-            // The history for running a script has extra "Script Folder" and "Start Script"
-            // entries at the beginning and an extra "End Script" entry at the end. The test
-            // script looks like this:
-            //
-            // takeoff
-            // land
-            //
-            Assert.AreEqual("ok", _commander.LastResponse);
-            Assert.AreEqual(7, _commander.History.Count);
-            Assert.IsTrue(_commander.History[0].Contains("Script Folder"));
-            Assert.IsTrue(_commander.History[1].Contains("Start Script"));
-            AssertHistoryEndsWith(2, "takeoff");
-            AssertHistoryEndsWith(3, "ok");
-            AssertHistoryEndsWith(4, "land");
-            AssertHistoryEndsWith(5, "ok");
-            Assert.IsTrue(_commander.History[6].Contains("End Script"));
-        }
-
-        [TestMethod]
-        public void RunScriptCommandTest()
-        {
             string script = Path.Combine("Content", "tello.txt");
             _commander.RunCommand($"runscript {script}");
 
@@ -174,8 +170,27 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
+        public void WriteHistoryTest()
+        {
+            string file = Path.GetTempFileName();
+            _commander.Connect();
+            _commander.History.Clear();
+            _commander.RunCommand("takeoff");
+            _commander.RunCommand($"writehistory {file}");
+            string[] history = File.ReadLines(file).ToArray();
+            File.Delete(file);
+
+            Assert.AreEqual(2, history.Length);
+            AssertHistoryEndsWith(0, "takeoff");
+            AssertHistoryEndsWith(1, "ok");
+        }
+
+        [TestMethod]
         public void WaitCommandTest()
         {
+            _commander.Connect();
+            _commander.History.Clear();
+
             DateTime start = DateTime.Now;
             _commander.RunCommand("wait 3");
             int milliseconds = (int)(DateTime.Now - start).TotalMilliseconds;
@@ -188,40 +203,31 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
-        public void WriteHistoryTest()
-        {
-            string file = Path.GetTempFileName();
-            _commander.RunCommand("takeoff");
-            _commander.WriteHistory(file);
-            string[] history = File.ReadLines(file).ToArray();
-            File.Delete(file);
-
-            Assert.AreEqual(2, history.Length);
-            AssertHistoryEndsWith(0, "takeoff");
-            AssertHistoryEndsWith(1, "ok");
-        }
-
-        [TestMethod]
-        public void WriteHistoryCommandTest()
-        {
-            string file = Path.GetTempFileName();
-            _commander.RunCommand("takeoff");
-            _commander.RunCommand($"writehistory {file}");
-            string[] history = File.ReadLines(file).ToArray();
-            File.Delete(file);
-
-            Assert.AreEqual(2, history.Length);
-            AssertHistoryEndsWith(0, "takeoff");
-            AssertHistoryEndsWith(1, "ok");
-        }
-
-        [TestMethod]
         public void ForceFailCommandTest()
         {
+            _commander.Connect();
             _commander.RunCommand("forcefail");
             _commander.RunCommand("takeoff");
 
             Assert.IsTrue(_commander.LastResponse.Contains("force-failed"));
+        }
+
+        [TestMethod]
+        public void ReceiveTimeoutTest()
+        {
+            _commander.Connect();
+            Assert.AreEqual(0, _connection.ReceiveTimeout);
+            _commander.RunCommand("receivetimeout 20");
+            Assert.AreEqual(20, _connection.ReceiveTimeout);
+        }
+
+        [TestMethod]
+        public void SendTimeoutTest()
+        {
+            _commander.Connect();
+            Assert.AreEqual(0, _connection.SendTimeout);
+            _commander.RunCommand("sendtimeout 20");
+            Assert.AreEqual(20, _connection.SendTimeout);
         }
     }
 }
