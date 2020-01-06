@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Connections;
 
@@ -29,10 +28,8 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void LandTest()
         {
-            string response = _drone.ConstructCommandResponse("takeoff");
-            Assert.AreEqual("ok", response);
-
-            response = _drone.ConstructCommandResponse("land");
+            _drone.ConstructCommandResponse("takeoff");
+            string response = _drone.ConstructCommandResponse("land");
             Assert.AreEqual("ok", response);
             Assert.AreEqual(0, _drone.Height);
         }
@@ -41,8 +38,6 @@ namespace TelloCommander.Tests
         public void EmergencyStopTest()
         {
             string response = _drone.ConstructCommandResponse("takeoff");
-            Assert.AreEqual("ok", response);
-
             response = _drone.ConstructCommandResponse("emergency");
             Assert.AreEqual("ok", response);
             Assert.AreEqual(0, _drone.Height);
@@ -52,8 +47,6 @@ namespace TelloCommander.Tests
         public void MoveUpTest()
         {
             string response = _drone.ConstructCommandResponse("takeoff");
-            Assert.AreEqual("ok", response);
-
             int height = _drone.Height;
             response = _drone.ConstructCommandResponse("up 100");
             int expected = ((height * 10) + 100) / 10;
