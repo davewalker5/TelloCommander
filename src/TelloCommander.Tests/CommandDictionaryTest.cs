@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TelloCommander.CommandDictionaries;
@@ -19,6 +20,27 @@ namespace TelloCommander.Tests
             string codeBase = Assembly.GetExecutingAssembly().CodeBase;
             UriBuilder builder = new UriBuilder(codeBase);
             _location = Path.GetDirectoryName(Uri.UnescapeDataString(builder.Path));
+        }
+
+        [TestMethod]
+        public void GetVersionTest()
+        {
+            string version = CommandDictionary.GetAvailableDictionaryVersions()[0];
+            CommandDictionary dictionary = CommandDictionary.ReadStandardDictionary(version);
+            Assert.AreEqual(version, dictionary.Version);
+        }
+
+        [TestMethod]
+        public void GetMockResponseTest()
+        {
+            string[] versions = CommandDictionary.GetAvailableDictionaryVersions();
+            CommandDictionary dictionary = CommandDictionary.ReadStandardDictionary(versions[0]);
+  
+            foreach (CommandDefinition command in dictionary.Commands)
+            {
+                string response = dictionary.GetMockResponse(command.Name);
+                Assert.AreEqual(command.MockResponse, response);
+            }
         }
 
         [TestMethod]
@@ -107,6 +129,15 @@ namespace TelloCommander.Tests
                 Assert.IsTrue(dictionary.Commands.Count > 0);
                 Assert.AreEqual(version, dictionary.Version);
             }
+        }
+
+        [TestMethod]
+        public void GetAvailableDictionariesTest()
+        {
+            string[] versions = CommandDictionary.GetAvailableDictionaryVersions();
+            Assert.AreEqual(2, versions.Length);
+            Assert.IsTrue(versions.Contains("1.3.0.0"));
+            Assert.IsTrue(versions.Contains("2.0.0.0"));
         }
 
         [TestMethod, ExpectedException(typeof(InvalidDictionaryXmlException))]

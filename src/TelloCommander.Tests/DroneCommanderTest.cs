@@ -92,24 +92,6 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod, ExpectedException(typeof(InvalidCommandException))]
-        public void RunInvalidCommandTest()
-        {
-            _commander.RunCommand("not-a-valid-command");
-        }
-
-        [TestMethod, ExpectedException(typeof(InvalidArgumentCountException))]
-        public void RunCommandWithTooManyArguments()
-        {
-            _commander.RunCommand("takeoff this-should-not-be-here");
-        }
-
-        [TestMethod, ExpectedException(typeof(InvalidArgumentCountException))]
-        public void RunCommandWithTooFewArguments()
-        {
-            _commander.RunCommand("up");
-        }
-
-        [TestMethod, ExpectedException(typeof(InvalidCommandException))]
         public void RunEmptyCommandTest()
         {
             _commander.RunCommand("");
@@ -119,12 +101,6 @@ namespace TelloCommander.Tests
         public void RunNullCommandTest()
         {
             _commander.RunCommand(null);
-        }
-
-        [TestMethod, ExpectedException(typeof(CommandNotValidForConnectionTypeException))]
-        public void CommandInvalidForConnectionTypeTest()
-        {
-            _commander.RunCommand("stopsimulator");
         }
 
         [TestMethod, ExpectedException(typeof(TooLowToMoveDownException))]
