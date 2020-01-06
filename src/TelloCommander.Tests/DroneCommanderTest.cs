@@ -149,7 +149,7 @@ namespace TelloCommander.Tests
             _commander.History.Clear();
 
             string script = Path.Combine("Content", "tello.txt");
-            _commander.RunCommand($"runscript {script}");
+            _commander.RunScript(script);
 
             // The history for running a script has extra "Script Folder" and "Start Script"
             // entries at the beginning and an extra "End Script" entry at the end. The test
@@ -159,14 +159,21 @@ namespace TelloCommander.Tests
             // land
             //
             Assert.AreEqual("ok", _commander.LastResponse);
-            Assert.AreEqual(7, _commander.History.Count);
+            Assert.AreEqual(14, _commander.History.Count);
             Assert.IsTrue(_commander.History[0].Contains("Script Folder"));
             Assert.IsTrue(_commander.History[1].Contains("Start Script"));
             AssertHistoryEndsWith(2, "takeoff");
             AssertHistoryEndsWith(3, "ok");
-            AssertHistoryEndsWith(4, "land");
-            AssertHistoryEndsWith(5, "ok");
-            Assert.IsTrue(_commander.History[6].Contains("End Script"));
+            Assert.IsTrue(_commander.History[4].Contains("Script Folder"));
+            Assert.IsTrue(_commander.History[5].Contains("Start Script"));
+            AssertHistoryEndsWith(6, "cw 180");
+            AssertHistoryEndsWith(7, "ok");
+            AssertHistoryEndsWith(8, "ccw 180");
+            AssertHistoryEndsWith(9, "ok");
+            Assert.IsTrue(_commander.History[10].Contains("End Script"));
+            AssertHistoryEndsWith(11, "land");
+            AssertHistoryEndsWith(12, "ok");
+            Assert.IsTrue(_commander.History[13].Contains("End Script"));
         }
 
         [TestMethod]

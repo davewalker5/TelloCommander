@@ -44,7 +44,7 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
-        public void WriteReadCommandWithArgumentsTest()
+        public void WriteAndReadCommandWithArgumentsTest()
         {
             CommandDefinition definition = new CommandDefinition
             {
@@ -90,7 +90,7 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
-        public void WriteReadCommandWithNoArgumentsTest()
+        public void WriteAndReadCommandWithNoArgumentsTest()
         {
             CommandDefinition definition = new CommandDefinition
             {
@@ -132,7 +132,7 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
-        public void GetAvailableDictionariesTest()
+        public void GetAvailableDictionaryVersionsTest()
         {
             string[] versions = CommandDictionary.GetAvailableDictionaryVersions();
             Assert.AreEqual(2, versions.Length);

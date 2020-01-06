@@ -1,3 +1,4 @@
 ﻿# Script for testing the script runner in the Tello commander
 takeoff
+runscript rotate.txt
 land

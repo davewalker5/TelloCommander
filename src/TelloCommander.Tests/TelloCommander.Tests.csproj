@@ -51,6 +51,7 @@
     <None Remove="Content\MissingResponseType %28copy%29.xml" />
     <None Remove="Content\InvalidResponseType %28copy%29.xml" />
     <None Remove="Content\CommandDictionary-2.0.0.0.xml" />
+    <None Remove="Content\rotate.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\tello.txt">
@@ -124,6 +125,9 @@
     </Content>
     <Content Include="Content\CommandDictionary-2.0.0.0.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\rotate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
