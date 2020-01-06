@@ -18,16 +18,62 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
-        public void EmergencyStopTest()
+        public void TakeoffTest()
         {
             Assert.AreEqual(0, _drone.Height);
             string response = _drone.ConstructCommandResponse("takeoff");
             Assert.AreEqual("ok", response);
             Assert.IsTrue(_drone.Height > 0);
+        }
+
+        [TestMethod]
+        public void LandTest()
+        {
+            string response = _drone.ConstructCommandResponse("takeoff");
+            Assert.AreEqual("ok", response);
+
+            response = _drone.ConstructCommandResponse("land");
+            Assert.AreEqual("ok", response);
+            Assert.AreEqual(0, _drone.Height);
+        }
+
+        [TestMethod]
+        public void EmergencyStopTest()
+        {
+            string response = _drone.ConstructCommandResponse("takeoff");
+            Assert.AreEqual("ok", response);
 
             response = _drone.ConstructCommandResponse("emergency");
             Assert.AreEqual("ok", response);
             Assert.AreEqual(0, _drone.Height);
+        }
+
+        [TestMethod]
+        public void MoveUpTest()
+        {
+            string response = _drone.ConstructCommandResponse("takeoff");
+            Assert.AreEqual("ok", response);
+
+            int height = _drone.Height;
+            response = _drone.ConstructCommandResponse("up 100");
+            int expected = ((height * 10) + 100) / 10;
+            Assert.AreEqual(expected, _drone.Height);
+        }
+
+        [TestMethod]
+        public void CurveTest()
+        {
+            string response = _drone.ConstructCommandResponse("curve 20 20 20 20 100 20 10");
+            Assert.AreEqual("ok", response);
+            Assert.AreEqual(10, _drone.Height);
+        }
+
+        [TestMethod]
+        public void GoTest()
+        {
+            string response = _drone.ConstructCommandResponse("go 20 100 20 10");
+            Assert.AreEqual("ok", response);
+            Assert.AreEqual(10, _drone.Height);
         }
 
         [TestMethod]
