@@ -17,6 +17,12 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
+        public void ConnectionTypeTest()
+        {
+            Assert.AreEqual(ConnectionType.Mock, _connection.ConnectionType);
+        }
+
+        [TestMethod]
         public void InitialHeightIsZeroTest()
         {
             Assert.AreEqual(0, _connection.Height);
@@ -25,17 +31,24 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void TakeOffHeightTest()
         {
+            _connection.Connect();
+            _connection.SendCommand("command");
             _connection.SendCommand("takeoff");
+
             Assert.IsTrue(_connection.Height > 0);
         }
 
         [TestMethod]
         public void MoveUpHeightTest()
         {
+            _connection.Connect();
+            _connection.SendCommand("command");
             _connection.SendCommand("takeoff");
+
             int takeOffHeight = _connection.Height;
 
             _connection.SendCommand("up 50");
+
             int expected = (10 * takeOffHeight + 50) / 10;
             Assert.AreEqual(expected, _connection.Height);
         }
@@ -43,18 +56,25 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void MoveDownHeightTest()
         {
+            _connection.Connect();
+            _connection.SendCommand("command");
+
             _connection.SendCommand("takeoff");
             int takeOffHeight = _connection.Height;
 
             _connection.SendCommand("up 50");
             _connection.SendCommand("down 50");
+
             Assert.AreEqual(takeOffHeight, _connection.Height);
         }
 
         [TestMethod]
         public void GetHeightTest()
         {
+            _connection.Connect();
+            _connection.SendCommand("command");
             _connection.SendCommand("takeoff");
+
             string expected = $"{_connection.Height}dm";
             string actual = _connection.SendCommand("height?");
             Assert.AreEqual(expected, actual);
@@ -63,7 +83,11 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void ForceFailCommandTest()
         {
+            _connection.Connect();
+            _connection.SendCommand("command");
+
             _connection.ForceFail = true;
+
             string response = _connection.SendCommand("takeoff");
             Assert.IsTrue(response.ToLower().Contains("error"));
         }
