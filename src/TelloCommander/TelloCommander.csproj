@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>TelloCommander</PackageId>
-    <ReleaseVersion>1.0.0</ReleaseVersion>
+    <ReleaseVersion>1.0.0.2</ReleaseVersion>
     <PackageVersion>1.0.0.1</PackageVersion>
     <Authors>Dave Walker</Authors>
     <Copyright>Copyright (c) 2020 Dave Walker</Copyright>
@@ -21,6 +21,7 @@
     <Folder Include="Simulator\" />
     <Folder Include="CommandDictionaries\" />
     <Folder Include="Content\" />
+    <Folder Include="Response\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Content\CommandDictionary-1.3.0.0.xml" />
