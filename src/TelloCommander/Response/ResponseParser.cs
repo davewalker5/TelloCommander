@@ -9,7 +9,7 @@ namespace TelloCommander.Response
         private static readonly char[] _numeric = { '-', '.' };
 
         /// <summary>
-        /// Parse a value string to a number, returning null if there's a conversion error
+        /// Parse a value string to a number
         /// </summary>
         /// <param name="valueString"></param>
         /// <returns></returns>
