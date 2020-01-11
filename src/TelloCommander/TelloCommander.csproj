@@ -9,8 +9,7 @@
     <Copyright>Copyright (c) 2020 Dave Walker</Copyright>
     <Owners>Dave Walker</Owners>
     <PackageProjectUrl>https://github.com/davewalker5/TelloCommander</PackageProjectUrl>
-    <PackageReleaseNotes>Added support for monitoring the Tello's "status" port
-Added the "DroneStatusMonitor" class</PackageReleaseNotes>
+    <PackageReleaseNotes>Added support for monitoring the Tello's "status" port  using the "DroneStatusMonitor" class</PackageReleaseNotes>
     <Summary>C# API for controlling a Tello drone</Summary>
     <PackageTags>Tello API</PackageTags>
     <Title>TelloCommander</Title>

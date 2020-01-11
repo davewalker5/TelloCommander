@@ -4,7 +4,6 @@ using System.Net;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Connections;
 using TelloCommander.Interfaces;
-using TelloCommander.Status;
 
 namespace TelloCommander.Commander
 {
