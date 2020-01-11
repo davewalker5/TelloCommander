@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
+using TelloCommander.Interfaces;
 using TelloCommander.Response;
 using TelloCommander.Udp;
 
 namespace TelloCommander.Status
 {
     [ExcludeFromCodeCoverage]
-    public class DroneStatusMonitor
+    public class DroneStatusMonitor : IDroneStatus
     {
         public const int DefaultTelloStatusPort = 8890;
 
@@ -17,7 +18,7 @@ namespace TelloCommander.Status
 
         public int Sequence { get; private set; }
         public string Status { get; private set; }
-        public Dictionary<string,string> RawValues { get; private set; }
+        public Dictionary<string, string> RawValues { get; private set; }
         public Attitude Attitude { get { return ResponseParser.ParseToAttitude(Status); } }
         public Speed Speed { get { return ResponseParser.ParseToSpeed(Status); } }
         public Temperature Temperature { get { return ResponseParser.ParseTemperatureFromPropertyList(Status); } }
@@ -27,8 +28,12 @@ namespace TelloCommander.Status
         public decimal Barometer { get { return ResponseParser.ParseToNumber(RawValues["baro"]); } }
         public decimal Time { get { return ResponseParser.ParseToNumber(RawValues["time"]); } }
         public Acceleration Acceleration { get { return ResponseParser.ParseToAcceleration(Status); } }
-
         public string Error { get; private set; }
+
+        /// <summary>
+        /// Event raised when the event arguments are updated
+        /// </summary>
+        public event EventHandler<DroneStatusEventArgs> DroneStatusUpdated;
 
         /// <summary>
         /// Status the status listener on another thread
@@ -61,6 +66,9 @@ namespace TelloCommander.Status
                     {
                         Error = ex.Message;
                     }
+
+                    // Notify subscribers to the status updated event
+                    DroneStatusUpdated?.Invoke(this, new DroneStatusEventArgs { Status = this });
 
                     if (token.IsCancellationRequested)
                     {
