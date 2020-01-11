@@ -536,28 +536,5 @@
       <MockResponse>ok</MockResponse>
       <Arguments />
     </CommandDefinition>
-    <CommandDefinition>
-      <Name>startstatusmonitor</Name>
-      <ConnectionType>Any</ConnectionType>
-      <ResponseType>OK</ResponseType>
-      <IsCustomCommand>true</IsCustomCommand>
-      <MockResponse>ok</MockResponse>
-      <Arguments>
-        <ArgumentDefinition>
-          <Name>port</Name>
-          <ArgumentType>String</ArgumentType>
-          <Required>true</Required>
-          <Minimum>0</Minimum>
-          <Maximum xsi:nil="true" />
-        </ArgumentDefinition>
-      </Arguments>
-    </CommandDefinition>
-    <CommandDefinition>
-      <Name>stopstatusmonitor</Name>
-      <ConnectionType>Any</ConnectionType>
-      <ResponseType>OK</ResponseType>
-      <IsCustomCommand>true</IsCustomCommand>
-      <MockResponse>ok</MockResponse>
-    </CommandDefinition>
   </Commands>
 </CommandDictionary>
