@@ -109,7 +109,26 @@ namespace TelloCommander.Response
         }
 
         /// <summary>
-        /// Parse a response into a temperature range
+        /// Parse a response into a speed
+        /// </summary>
+        /// <param name="response"></param>
+        /// <returns></returns>
+        public static Speed ParseToSpeed(string response)
+        {
+            Dictionary<string, string> properties = ParseToDictionary(response);
+
+            Speed speed = new Speed
+            {
+                X = ResponseParser.ParseToNumber(properties["vgx"]),
+                Y = ResponseParser.ParseToNumber(properties["vgy"]),
+                Z = ResponseParser.ParseToNumber(properties["vgz"])
+            };
+
+            return speed;
+        }
+
+        /// <summary>
+        /// Parse a response containing a range into a temperature range
         /// </summary>
         /// <param name="response"></param>
         /// <returns></returns>
@@ -121,6 +140,24 @@ namespace TelloCommander.Response
             {
                 Minimum = tuple.minimum,
                 Maximum = tuple.maximum
+            };
+
+            return temperature;
+        }
+
+        /// <summary>
+        /// Parse a response containing a list of properties into a temperature range
+        /// </summary>
+        /// <param name="response"></param>
+        /// <returns></returns>
+        public static Temperature ParseTemperatureFromPropertyList(string response)
+        {
+            Dictionary<string, string> properties = ParseToDictionary(response);
+
+            Temperature temperature = new Temperature
+            {
+                Minimum = ResponseParser.ParseToNumber(properties["templ"]),
+                Maximum = ResponseParser.ParseToNumber(properties["temph"])
             };
 
             return temperature;

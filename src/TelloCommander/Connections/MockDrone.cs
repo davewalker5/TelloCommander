@@ -90,5 +90,15 @@ namespace TelloCommander.Connections
 
             return response;
         }
+
+        /// <summary>
+        /// Return a string representing the current status of the drone
+        /// </summary>
+        /// <returns></returns>
+        public string GetStatus()
+        {
+            string status = $"pitch:0;roll:0;yaw:0;vgx:0;vgy:0;vgz:0;templ:0;temph:0;tof:0;h:{Height};bat:0;baro:0.00;time:0;agx:0.00;agy:0.00;agz:0.00;";
+            return status;
+        }
     }
 }

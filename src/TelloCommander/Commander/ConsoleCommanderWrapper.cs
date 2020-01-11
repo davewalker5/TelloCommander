@@ -29,14 +29,14 @@ namespace TelloCommander.Commander
                     {
                         case ConnectionType.Mock:
                             ITelloConnection mockConnection = new MockTelloConnection(dictionary);
-                            new ConsoleCommander(mockConnection, dictionary).Run();
+                            new ConsoleCommander(mockConnection, dictionary).Run(false);
                             break;
                         case ConnectionType.Simulator:
                             ITelloConnection connection = new TelloConnection(IPAddress.Loopback.ToString(), TelloConnection.DefaultTelloPort, connectionType);
-                            new ConsoleCommander(connection, dictionary).Run();
+                            new ConsoleCommander(connection, dictionary).Run(true);
                             break;
                         case ConnectionType.Drone:
-                            new ConsoleCommander(new TelloConnection(), dictionary).Run();
+                            new ConsoleCommander(new TelloConnection(), dictionary).Run(true);
                             break;
                         default:
                             break;
