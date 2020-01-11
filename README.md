@@ -8,6 +8,8 @@
 [![Language](https://img.shields.io/badge/language-c%23-blue.svg)](https://github.com/davewalker5/TelloCommander/)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/davewalker5/TelloCommander)](https://github.com/davewalker5/TelloCommander/)
 
+## About
+
 Tello Commander is a C# API for controlling a Tello drone, offering the following features:
 
 - A simple interface to connect to, control and disconnect from the drone
@@ -15,6 +17,8 @@ Tello Commander is a C# API for controlling a Tello drone, offering the followin
 - Command/response history
 - Response parser for processing drone "read" command responses
 - Execution of commands from pre-prepared scripts
+
+## Getting Started
 
 Once the API is referenced by a project, you should include the following "using" statements to import the necessary types:
 
