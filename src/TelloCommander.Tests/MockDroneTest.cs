@@ -1,6 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Connections;
+using TelloCommander.Response;
 
 namespace TelloCommander.Tests
 {
@@ -85,6 +87,33 @@ namespace TelloCommander.Tests
             string response = _drone.ConstructCommandResponse("responsedelay 10");
             Assert.AreEqual("ok", response);
             Assert.AreEqual(10, _drone.ResponseDelay);
+        }
+
+        [TestMethod]
+        public void GetStatusTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            string status = _drone.GetStatus();
+
+            Dictionary<string, string> properties = ResponseParser.ParseToDictionary(status);
+            Assert.AreEqual("0", properties["pitch"]);
+            Assert.AreEqual("0", properties["roll"]);
+            Assert.AreEqual("0", properties["yaw"]);
+            Assert.AreEqual("0", properties["vgx"]);
+            Assert.AreEqual("0", properties["vgy"]);
+            Assert.AreEqual("0", properties["vgz"]);
+            Assert.AreEqual("0", properties["templ"]);
+            Assert.AreEqual("0", properties["temph"]);
+            Assert.AreEqual("0", properties["tof"]);
+            Assert.AreEqual("0", properties["bat"]);
+            Assert.AreEqual("0.00", properties["baro"]);
+            Assert.AreEqual("0", properties["time"]);
+            Assert.AreEqual("0.00", properties["agx"]);
+            Assert.AreEqual("0.00", properties["agy"]);
+            Assert.AreEqual("0.00", properties["agz"]);
+
+            decimal height = decimal.Parse(properties["h"]);
+            Assert.AreEqual(_drone.Height, height);
         }
     }
 }

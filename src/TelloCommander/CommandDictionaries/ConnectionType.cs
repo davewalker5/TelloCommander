@@ -6,6 +6,6 @@
         Mock = 1,
         Simulator = 2,
         Drone = 3,
-        Any = 4
+        Any = 5
     }
 }

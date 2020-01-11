@@ -9,6 +9,7 @@ using TelloCommander.CommandDictionaries;
 using TelloCommander.Connections;
 using TelloCommander.Exceptions;
 using TelloCommander.Interfaces;
+using TelloCommander.Status;
 
 [assembly:InternalsVisibleTo("TelloCommander.Tests")]
 namespace TelloCommander.Commander

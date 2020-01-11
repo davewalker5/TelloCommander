@@ -7,7 +7,7 @@ namespace TelloCommander
 
         public static void Main(string[] args)
         {
-           new ConsoleCommanderWrapper().Run();
+            new ConsoleCommanderWrapper().Run();
         }
     }
 }

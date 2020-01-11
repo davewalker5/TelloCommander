@@ -2,6 +2,7 @@
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Connections;
 using TelloCommander.Simulator;
+using TelloCommander.Status;
 
 namespace TelloSimulator
 {
@@ -12,7 +13,7 @@ namespace TelloSimulator
             if (args.Length == 1)
             {
                 CommandDictionary dictionary = CommandDictionary.ReadStandardDictionary(args[0]);
-                new DroneSimulator(dictionary).Listen(TelloConnection.DefaultTelloPort);
+                new DroneSimulator(dictionary).Listen(TelloConnection.DefaultTelloPort, DroneStatusMonitor.DefaultTelloStatusPort);
             }
             else
             {

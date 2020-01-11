@@ -626,5 +626,25 @@
       <MockResponse>ok</MockResponse>
       <Arguments />
     </CommandDefinition>
+    <CommandDefinition>
+      <Name>status</Name>
+      <ConnectionType>Any</ConnectionType>
+      <ResponseType>OK</ResponseType>
+      <IsCustomCommand>false</IsCustomCommand>
+      <MockResponse>ok</MockResponse>
+      <Arguments>
+        <ArgumentDefinition>
+          <Name>direction</Name>
+          <ArgumentType>String</ArgumentType>
+          <Required>true</Required>
+          <Minimum xsi:nil="true" />
+          <Maximum xsi:nil="true" />
+          <AllowedValues>
+            <string>start</string>
+            <string>stop</string>
+          </AllowedValues>
+        </ArgumentDefinition>
+      </Arguments>
+    </CommandDefinition>
   </Commands>
 </CommandDictionary>

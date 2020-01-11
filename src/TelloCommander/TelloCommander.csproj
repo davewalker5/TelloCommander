@@ -3,13 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>TelloCommander</PackageId>
-    <ReleaseVersion>1.0.0.2</ReleaseVersion>
-    <PackageVersion>1.0.0.2</PackageVersion>
+    <ReleaseVersion>1.0.0.3</ReleaseVersion>
+    <PackageVersion>1.0.0.3</PackageVersion>
     <Authors>Dave Walker</Authors>
     <Copyright>Copyright (c) 2020 Dave Walker</Copyright>
     <Owners>Dave Walker</Owners>
     <PackageProjectUrl>https://github.com/davewalker5/TelloCommander</PackageProjectUrl>
-    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageReleaseNotes>Added support for monitoring the Tello's "status" port
+Added the "DroneStatusMonitor" class</PackageReleaseNotes>
     <Summary>C# API for controlling a Tello drone</Summary>
     <PackageTags>Tello API</PackageTags>
     <Title>TelloCommander</Title>
@@ -22,12 +23,15 @@
     <Folder Include="CommandDictionaries\" />
     <Folder Include="Content\" />
     <Folder Include="Response\" />
+    <Folder Include="Status\" />
+    <Folder Include="Udp\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Content\CommandDictionary-1.3.0.0.xml" />
     <None Remove="Content\CommandDictionary.xsd" />
     <None Remove="Content\CommandDictionary-1.3.0 %28copy%29.0.xml" />
     <None Remove="Content\TelloCommanderLicense.txt" />
+    <None Remove="Content\CommandDictionary-2.0.0.0.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\CommandDictionary-1.3.0.0.xml">
