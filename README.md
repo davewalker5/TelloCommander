@@ -21,8 +21,6 @@ Tello Commander is a C# API for controlling a Tello drone, offering the followin
 
 ## Getting Started
 
-## Getting Started
-
 Once the API is referenced by a project, you should include the following "using" statements to import the necessary types:
 
 ```csharp
