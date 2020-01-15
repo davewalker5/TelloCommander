@@ -5,8 +5,8 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TelloCommander.CommandDictionaries;
-using TelloCommander.Connections;
 using TelloCommander.Response;
+using TelloCommander.Simulator;
 
 namespace TelloCommander.Tests
 {
@@ -319,12 +319,14 @@ namespace TelloCommander.Tests
             Assert.AreEqual("0", properties["templ"]);
             Assert.AreEqual("0", properties["temph"]);
             Assert.AreEqual("0", properties["tof"]);
-            Assert.AreEqual("0", properties["bat"]);
             Assert.AreEqual("0.00", properties["baro"]);
             Assert.AreEqual("0", properties["time"]);
             Assert.AreEqual("0.00", properties["agx"]);
             Assert.AreEqual("0.00", properties["agy"]);
             Assert.AreEqual("0.00", properties["agz"]);
+
+            int battery = int.Parse(properties["bat"]);
+            Assert.IsTrue(battery > 0);
 
             decimal height = decimal.Parse(properties["h"]);
             Assert.AreEqual(_drone.Height, height);

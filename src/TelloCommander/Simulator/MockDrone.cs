@@ -18,7 +18,7 @@ namespace TelloCommander.Simulator
 
             Battery = 100;
             CriticalBatteryLevel = 10;
-            SingleChargeFlightTime = 60;
+            SingleChargeFlightTimeSeconds = 300;
 
             _timer.Interval = 1000;
             _timer.Elapsed += OnBatteryTimer;
@@ -75,7 +75,7 @@ namespace TelloCommander.Simulator
         /// <summary>
         /// Set the flight time (in seconds) from a single battery charge
         /// </summary>
-        public int SingleChargeFlightTime { get; set; }
+        public int SingleChargeFlightTimeSeconds { get; set; }
 
         /// <summary>
         /// Set to true by the "stop" command, intended to stop the simulator
@@ -352,7 +352,7 @@ namespace TelloCommander.Simulator
         /// <param name="e"></param>
         private void OnBatteryTimer(object sender, ElapsedEventArgs e)
         {
-            decimal batteryDropPerSecond = (100M - (decimal)CriticalBatteryLevel) / (decimal)SingleChargeFlightTime;
+            decimal batteryDropPerSecond = (100M - (decimal)CriticalBatteryLevel) / (decimal)SingleChargeFlightTimeSeconds;
             Battery = (int)(100M - TimeOfFlight * batteryDropPerSecond);
             if (Battery <= CriticalBatteryLevel)
             {
