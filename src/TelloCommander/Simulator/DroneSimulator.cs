@@ -22,6 +22,7 @@ namespace TelloCommander.Simulator
         public DroneSimulator(CommandDictionary dictionary)
         {
             _drone = new MockDrone(dictionary);
+            _drone.BatteryCritical += OnBatteryCritical;
         }
 
         /// <summary>
@@ -112,6 +113,11 @@ namespace TelloCommander.Simulator
                         Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Status Sender : {ex.Message}");
                     }
 
+                    if (_drone.InFlight)
+                    {
+                        ReportInFlightProperties();
+                    }
+
                     if (token.IsCancellationRequested)
                     {
                         token.ThrowIfCancellationRequested();
@@ -120,6 +126,28 @@ namespace TelloCommander.Simulator
                 }
 
             }, token);
+        }
+
+        /// <summary>
+        /// Report drone flight properties when in-flight
+        /// </summary>
+        private void ReportInFlightProperties()
+        {
+            Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Drone position {_drone.Position.ToString()}");
+            Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Drone heading {_drone.Heading}");
+            Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Drone flight time {_drone.TimeOfFlight}s");
+            Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Drone battery level {_drone.Battery}%");
+        }
+
+        /// <summary>
+        /// Event handler for landings due to battery level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnBatteryCritical(object sender, BatteryCriticalEventArgs e)
+        {
+            Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Warning : Battery level {e.Battery}%");
+            Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Warning : Drone landing after {e.TimeOfFlight}s of flight");
         }
     }
 }

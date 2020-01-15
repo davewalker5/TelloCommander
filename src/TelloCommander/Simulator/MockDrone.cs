@@ -1,21 +1,38 @@
 ﻿using System;
+using System.Timers;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Exceptions;
 using TelloCommander.Response;
 
-namespace TelloCommander.Connections
+namespace TelloCommander.Simulator
 {
     internal class MockDrone
     {
         private DateTime _startOfFlight;
-
-        public CommandDictionary Dictionary { get; private set; }
+        private readonly Timer _timer = new Timer();
 
         public MockDrone(CommandDictionary dictionary)
         {
             Dictionary = dictionary;
             Position = new Position();
+
+            Battery = 100;
+            CriticalBatteryLevel = 10;
+            SingleChargeFlightTime = 60;
+
+            _timer.Interval = 1000;
+            _timer.Elapsed += OnBatteryTimer;
         }
+
+        /// <summary>
+        /// Event raised when the event arguments are updated
+        /// </summary>
+        public event EventHandler<BatteryCriticalEventArgs> BatteryCritical;
+
+        /// <summary>
+        /// Current command dictionary
+        /// </summary>
+        public CommandDictionary Dictionary { get; private set; }
 
         /// <summary>
         /// Return true if the drone
@@ -44,6 +61,21 @@ namespace TelloCommander.Connections
         {
             get { return (InFlight) ? (int)(DateTime.Now - _startOfFlight).TotalSeconds : 0; }
         }
+
+        /// <summary>
+        /// Return the current battery charge
+        /// </summary>
+        public int Battery { get; private set; }
+
+        /// <summary>
+        /// Set the % battery charge at which the drone lands automatically
+        /// </summary>
+        public int CriticalBatteryLevel { get; set; }
+
+        /// <summary>
+        /// Set the flight time (in seconds) from a single battery charge
+        /// </summary>
+        public int SingleChargeFlightTime { get; set; }
 
         /// <summary>
         /// Set to true by the "stop" command, intended to stop the simulator
@@ -95,7 +127,7 @@ namespace TelloCommander.Connections
         /// <returns></returns>
         public string GetStatus()
         {
-            string status = $"pitch:0;roll:0;yaw:0;vgx:0;vgy:0;vgz:0;templ:0;temph:0;tof:0;h:{Height};bat:0;baro:0.00;time:0;agx:0.00;agy:0.00;agz:0.00;";
+            string status = $"pitch:0;roll:0;yaw:0;vgx:0;vgy:0;vgz:0;templ:0;temph:0;tof:0;h:{Height};bat:{Battery};baro:0.00;time:0;agx:0.00;agy:0.00;agz:0.00;";
             return status;
         }
 
@@ -116,12 +148,13 @@ namespace TelloCommander.Connections
                     Position.X = 0;
                     Position.Y = 60;
                     Position.Z = 0;
+                    Battery = 100;
                     response = Dictionary.GetMockResponse(words[0]);
+                    _timer.Enabled = true;
                     break;
                 case "land":
                     AssertIsInFlight();
-                    Position.Y = 0;
-                    InFlight = false;
+                    Land();
                     response = Dictionary.GetMockResponse(words[0]);
                     break;
                 case "emergency":
@@ -246,6 +279,16 @@ namespace TelloCommander.Connections
         }
 
         /// <summary>
+        /// Land the drone
+        /// </summary>
+        private void Land()
+        {
+            _timer.Enabled = false;
+            Position.Y = 0;
+            InFlight = false;
+        }
+
+        /// <summary>
         /// Move the drone forward on the current heading
         /// </summary>
         /// <param name="amount"></param>
@@ -299,6 +342,22 @@ namespace TelloCommander.Connections
             if (!InFlight)
             {
                 throw new NotInFlightException("The drone is not in flight");
+            }
+        }
+
+        /// <summary>
+        /// Drain the battery
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnBatteryTimer(object sender, ElapsedEventArgs e)
+        {
+            decimal batteryDropPerSecond = (100M - (decimal)CriticalBatteryLevel) / (decimal)SingleChargeFlightTime;
+            Battery = (int)(100M - TimeOfFlight * batteryDropPerSecond);
+            if (Battery <= CriticalBatteryLevel)
+            {
+                BatteryCritical?.Invoke(this, new BatteryCriticalEventArgs { Battery = Battery, TimeOfFlight = TimeOfFlight });
+                Land();
             }
         }
     }

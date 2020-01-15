@@ -116,7 +116,7 @@ namespace TelloCommander.Commander
                 Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} TOF          : {_monitor.TOF}");
                 Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Height       : {_monitor.Height}");
                 Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Battery      : {_monitor.Battery}");
-                Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Barometer    : {_monitor.Battery}");
+                Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Barometer    : {_monitor.Barometer}");
                 Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Time         : {_monitor.Time}");
                 Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Acceleration : {_monitor.Acceleration.ToString()}");
             }
