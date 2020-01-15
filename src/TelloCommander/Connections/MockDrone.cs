@@ -272,9 +272,9 @@ namespace TelloCommander.Connections
                     Position.X -= amount;
                     break;
                 default:
-                    double radians = Math.PI * Heading / 180.0;
-                    Position.X += amount * (decimal)Math.Sin(radians);
-                    Position.Z -= amount * (decimal)Math.Cos(radians);
+                    double radians = Math.PI * (double)movementHeading / 180.0;
+                    Position.X += Decimal.Round(amount * (decimal)Math.Sin(radians), 3);
+                    Position.Z -= Decimal.Round(amount * (decimal)Math.Cos(radians), 3);
                     break;
             }
         }

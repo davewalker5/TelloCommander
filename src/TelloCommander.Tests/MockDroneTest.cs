@@ -76,6 +76,180 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
+        public void MoveForwardAt0DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("forward 100");
+            Assert.AreEqual(0, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(-100, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveBackAt0DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("back 100");
+            Assert.AreEqual(0, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(100, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveForwardAt90DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 90");
+            _drone.ConstructCommandResponse("forward 100");
+            Assert.AreEqual(100, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(0, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveBackAt90DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 90");
+            _drone.ConstructCommandResponse("back 100");
+            Assert.AreEqual(-100, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(0, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveForwardAt180DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 180");
+            _drone.ConstructCommandResponse("forward 100");
+            Assert.AreEqual(0, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(100, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveBackAt180DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 180");
+            _drone.ConstructCommandResponse("back 100");
+            Assert.AreEqual(0, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(-100, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveForwardAt270DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 270");
+            _drone.ConstructCommandResponse("forward 100");
+            Assert.AreEqual(-100, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(0, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveBackAt270DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 270");
+            _drone.ConstructCommandResponse("back 100");
+            Assert.AreEqual(100, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(0, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveForwardAt45DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 45");
+            _drone.ConstructCommandResponse("forward 100");
+            Assert.AreEqual(70.711M, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(-70.711M, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveBackAt45DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 45");
+            _drone.ConstructCommandResponse("back 100");
+            Assert.AreEqual(-70.711M, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(70.711M, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveForwardAt135DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 135");
+            _drone.ConstructCommandResponse("forward 100");
+            Assert.AreEqual(70.711M, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(70.711M, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveBackAt135DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 135");
+            _drone.ConstructCommandResponse("back 100");
+            Assert.AreEqual(-70.711M, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(-70.711M, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveForwardAt225DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 225");
+            _drone.ConstructCommandResponse("forward 100");
+            Assert.AreEqual(-70.711M, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(70.711M, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveBackAt225DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 225");
+            _drone.ConstructCommandResponse("back 100");
+            Assert.AreEqual(70.711M, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(-70.711M, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveForwardAt315DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 315");
+            _drone.ConstructCommandResponse("forward 100");
+            Assert.AreEqual(-70.711M, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(-70.711M, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void MoveBackAt315DegreesTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("cw 315");
+            _drone.ConstructCommandResponse("back 100");
+            Assert.AreEqual(70.711M, _drone.Position.X);
+            Assert.AreEqual(60, _drone.Position.Y);
+            Assert.AreEqual(70.711M, _drone.Position.Z);
+        }
+
+        [TestMethod]
         public void RotateClockwiseTest()
         {
             _drone.ConstructCommandResponse("takeoff");
