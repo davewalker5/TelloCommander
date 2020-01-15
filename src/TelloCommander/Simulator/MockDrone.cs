@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Timers;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Exceptions;
@@ -350,6 +351,7 @@ namespace TelloCommander.Simulator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        [ExcludeFromCodeCoverage]
         private void OnBatteryTimer(object sender, ElapsedEventArgs e)
         {
             decimal batteryDropPerSecond = (100M - (decimal)CriticalBatteryLevel) / (decimal)SingleChargeFlightTimeSeconds;

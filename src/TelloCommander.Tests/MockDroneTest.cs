@@ -383,6 +383,16 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
+        public void BatteryDischargeTest()
+        {
+            _drone.SingleChargeFlightTimeSeconds = 60;
+            Assert.AreEqual(100, _drone.Battery);
+            _drone.ConstructCommandResponse("takeoff");
+            Thread.Sleep(3000);
+            Assert.IsTrue(_drone.Battery < 100);
+        }
+
+        [TestMethod]
         public void LandWithoutTakeoffTest()
         {
             string response = _drone.ConstructCommandResponse("land");
