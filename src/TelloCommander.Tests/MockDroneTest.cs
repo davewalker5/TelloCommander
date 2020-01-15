@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TelloCommander.CommandDictionaries;
@@ -182,6 +184,26 @@ namespace TelloCommander.Tests
             Assert.AreEqual(0, _drone.Position.Y);
             _drone.ConstructCommandResponse("takeoff");
             Assert.AreEqual(60, _drone.Position.Y);
+        }
+
+        [TestMethod]
+        public void ParseToStringTest()
+        {
+            // Populate the position with some data rather than leaving it at 0,0,0
+            _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("forward 50");
+            _drone.ConstructCommandResponse("right 50");
+
+            string text = _drone.Position.ToString();
+            string csv = _drone.Position.ToCsv();
+
+            Regex regex = new Regex(@"^X: -?[0-9]+ Y: -?[0-9]+ Z: -?[0-9]+$");
+            bool matches = regex.Matches(text).Any();
+            Assert.IsTrue(matches);
+
+            regex = new Regex(@"^""-?[0-9]+"",""-?[0-9]+"",""-?[0-9]+""$");
+            matches = regex.Matches(csv).Any();
+            Assert.IsTrue(matches);
         }
 
         [TestMethod]
