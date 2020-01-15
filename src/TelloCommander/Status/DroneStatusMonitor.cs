@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TelloCommander.Interfaces;
@@ -10,11 +12,12 @@ using TelloCommander.Udp;
 namespace TelloCommander.Status
 {
     [ExcludeFromCodeCoverage]
-    public class DroneStatusMonitor : IDroneStatus
+    public class DroneStatusMonitor : IDroneStatus, IDisposable
     {
         public const int DefaultTelloStatusPort = 8890;
 
         private CancellationTokenSource _source;
+        private StreamWriter _output;
 
         public int Sequence { get; private set; }
         public string Status { get; private set; }
@@ -67,12 +70,18 @@ namespace TelloCommander.Status
                         Error = ex.Message;
                     }
 
+                    if (_output != null)
+                    {
+                        WriteStatus();
+                    }
+
                     // Notify subscribers to the status updated event
                     DroneStatusUpdated?.Invoke(this, new DroneStatusEventArgs { Status = this });
 
                     if (token.IsCancellationRequested)
                     {
                         token.ThrowIfCancellationRequested();
+                        StopCapture();
                         listener.Close();
                         listener.Dispose();
                     }
@@ -90,6 +99,102 @@ namespace TelloCommander.Status
             {
                 _source.Cancel();
                 _source.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Start capturing the status to the specified file (in CSV format)
+        /// </summary>
+        /// <param name="file"></param>
+        public void StartCapture(string file)
+        {
+            bool needsHeader = !File.Exists(file);
+
+            _output = new StreamWriter(file, true, Encoding.UTF8);
+
+            if (needsHeader)
+            {
+                _output.Write("Date,");
+                _output.Write("Sequence,");
+                _output.Write("Pitch,");
+                _output.Write("Roll,");
+                _output.Write("Yaw,");
+                _output.Write("Speed X,");
+                _output.Write("Speed Y,");
+                _output.Write("Speed Z,");
+                _output.Write("Temperature Minimum,");
+                _output.Write("Temperature Maximum,");
+                _output.Write("TOF,");
+                _output.Write("Height,");
+                _output.Write("Battery,");
+                _output.Write("Barometer,");
+                _output.Write("Time,");
+                _output.Write("Acceleration X,");
+                _output.Write("Acceleration Y,");
+                _output.Write("Acceleration Z,");
+                _output.WriteLine("Error");
+            }
+        }
+
+        /// <summary>
+        /// Stop capturing status
+        /// </summary>
+        public void StopCapture()
+        {
+            if (_output != null)
+            {
+                _output.Close();
+                _output.Dispose();
+                _output = null;
+            }
+        }
+
+        /// <summary>
+        /// Write the drone status to the output stream
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void WriteStatus()
+        {
+            _output.Write($"{DateTime.Now.ToString("yyyy-mmm-dd hh:mm:ss.fff")},");
+            _output.Write($"\"{Sequence}\",");
+            _output.Write($"{Attitude.ToCsv()},");
+            _output.Write($"{Speed.ToCsv()},");
+            _output.Write($"{Temperature.ToCsv()},");
+            _output.Write($"\"{TOF}\",");
+            _output.Write($"\"{Height}\",");
+            _output.Write($"\"{Battery}\",");
+            _output.Write($"\"{Barometer}\",");
+            _output.Write($"\"{Time}\",");
+            _output.Write($"{Acceleration.ToCsv()},");
+            _output.WriteLine($"\"{Error}\"");
+            _output.Flush();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_output != null)
+                {
+                    try
+                    {
+                        _output.Close();
+                    }
+                    catch
+                    {
+                    }
+                    finally
+                    {
+                        _output.Dispose();
+                    }
+                }
             }
         }
     }

@@ -22,6 +22,8 @@ namespace TelloCommander.Commander
         /// <param name="enableStatusMonitor"></param>
         public void Run(bool enableStatusMonitor = true)
         {
+            char[] separators = { ' ' };
+
             try
             {
                 Connect();
@@ -48,14 +50,24 @@ namespace TelloCommander.Commander
 
                         try
                         {
-                            if (command.Trim() == "?")
+                            string[] words = command.Trim().Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                            switch (words[0])
                             {
-                                ReportDroneStatus();
-                                LastResponse = "ok";
-                            }
-                            else
-                            {
-                                RunCommand(command);
+                                case "?":
+                                    ReportDroneStatus();
+                                    LastResponse = "ok";
+                                    break;
+                                case "capturestatus":
+                                    _monitor.StartCapture(words[1]);
+                                    LastResponse = "ok";
+                                    break;
+                                case "stopcapture":
+                                    _monitor.StopCapture();
+                                    LastResponse = "ok";
+                                    break;
+                                default:
+                                    RunCommand(command);
+                                    break;
                             }
                         }
 #pragma warning disable RECS0022

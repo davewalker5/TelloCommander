@@ -10,5 +10,10 @@
         {
             return $"X: {X} Y: {Y} Z: {Z}";
         }
+
+        public string ToCsv()
+        {
+            return $"\"{X}\",\"{Y}\",\"{Z}\"";
+        }
     }
 }

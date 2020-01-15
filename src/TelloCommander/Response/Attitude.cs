@@ -10,5 +10,10 @@
         {
             return $"Pitch: {Pitch} Roll: {Roll} Yaw: {Yaw}";
         }
+
+        public string ToCsv()
+        {
+            return $"\"{Pitch}\",\"{Roll}\",\"{Yaw}\"";
+        }
     }
 }
