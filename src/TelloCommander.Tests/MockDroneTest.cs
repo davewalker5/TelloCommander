@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Connections;
@@ -37,10 +39,26 @@ namespace TelloCommander.Tests
         }
 
         [TestMethod]
+        public void NoTimeOfFlightTest()
+        {
+            Assert.AreEqual(0, _drone.TimeOfFlight);
+        }
+
+        [TestMethod]
+        public void TimeOfFlightTest()
+        {
+            DateTime start = DateTime.Now;
+            _drone.ConstructCommandResponse("takeoff");
+            Thread.Sleep(3000);
+            int seconds = (int)(DateTime.Now - start).TotalSeconds;
+            Assert.IsTrue(seconds >= 3);
+        }
+
+        [TestMethod]
         public void EmergencyStopTest()
         {
-            string response = _drone.ConstructCommandResponse("takeoff");
-            response = _drone.ConstructCommandResponse("emergency");
+            _drone.ConstructCommandResponse("takeoff");
+            string response = _drone.ConstructCommandResponse("emergency");
             Assert.AreEqual("ok", response);
             Assert.AreEqual(0, _drone.Height);
         }
@@ -48,11 +66,29 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void MoveUpTest()
         {
-            string response = _drone.ConstructCommandResponse("takeoff");
+            _drone.ConstructCommandResponse("takeoff");
             int height = _drone.Height;
-            response = _drone.ConstructCommandResponse("up 100");
+            _drone.ConstructCommandResponse("up 100");
             int expected = ((height * 10) + 100) / 10;
             Assert.AreEqual(expected, _drone.Height);
+        }
+
+        [TestMethod]
+        public void RotateClockwiseTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            Assert.AreEqual(0, _drone.Heading);
+            _drone.ConstructCommandResponse("cw 45");
+            Assert.AreEqual(45, _drone.Heading);
+        }
+
+        [TestMethod]
+        public void RotateAntiClockwiseTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            Assert.AreEqual(0, _drone.Heading);
+            _drone.ConstructCommandResponse("ccw 45");
+            Assert.AreEqual(315, _drone.Heading);
         }
 
         [TestMethod]
@@ -116,6 +152,120 @@ namespace TelloCommander.Tests
 
             decimal height = decimal.Parse(properties["h"]);
             Assert.AreEqual(_drone.Height, height);
+        }
+
+        [TestMethod]
+        public void PositionXTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            Assert.AreEqual(0, _drone.Position.X);
+            _drone.ConstructCommandResponse("left 50");
+            Assert.AreEqual(-50, _drone.Position.X);
+            _drone.ConstructCommandResponse("right 100");
+            Assert.AreEqual(50, _drone.Position.X);
+        }
+
+        [TestMethod]
+        public void PositionZTest()
+        {
+            _drone.ConstructCommandResponse("takeoff");
+            Assert.AreEqual(0, _drone.Position.Z);
+            _drone.ConstructCommandResponse("forward 50");
+            Assert.AreEqual(-50, _drone.Position.Z);
+            _drone.ConstructCommandResponse("back 100");
+            Assert.AreEqual(50, _drone.Position.Z);
+        }
+
+        [TestMethod]
+        public void PositionYTest()
+        {
+            Assert.AreEqual(0, _drone.Position.Y);
+            _drone.ConstructCommandResponse("takeoff");
+            Assert.AreEqual(60, _drone.Position.Y);
+        }
+
+        [TestMethod]
+        public void LandWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("land");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void EmergencyWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("emergency");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void MoveUpWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("up 50");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void MoveDownWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("down 50");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void MoveForwardWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("forward 50");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void MoveBackWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("back 50");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void MoveLeftWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("left 50");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void MoveRightWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("right 50");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void CurveWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("curve 20 20 20 20 100 20 10");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void GoWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("go 20 100 20 10");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void RotateClockwiseWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("cw 180");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
+        }
+
+        [TestMethod]
+        public void RotateAnticlockwiseWithoutTakeoffTest()
+        {
+            string response = _drone.ConstructCommandResponse("ccw 180");
+            Assert.IsTrue(response.ToLower().Contains("not in flight"));
         }
     }
 }

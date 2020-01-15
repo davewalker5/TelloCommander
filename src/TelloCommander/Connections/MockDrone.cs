@@ -174,21 +174,25 @@ namespace TelloCommander.Connections
                     response = Dictionary.GetMockResponse(words[0]);
                     break;
                 case "forward":
+                    AssertIsInFlight();
                     int.TryParse(words[1], out int forwardAmount);
                     MoveForwardOrBackward(forwardAmount, true);
                     response = Dictionary.GetMockResponse(words[0]);
                     break;
                 case "back":
+                    AssertIsInFlight();
                     int.TryParse(words[1], out int backAmount);
                     MoveForwardOrBackward(backAmount, false);
                     response = Dictionary.GetMockResponse(words[0]);
                     break;
                 case "left":
+                    AssertIsInFlight();
                     int.TryParse(words[1], out int leftAmount);
                     Position.X -= leftAmount;
                     response = Dictionary.GetMockResponse(words[0]);
                     break;
                 case "right":
+                    AssertIsInFlight();
                     int.TryParse(words[1], out int rightAmount);
                     Position.X += rightAmount;
                     response = Dictionary.GetMockResponse(words[0]);
