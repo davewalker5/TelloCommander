@@ -58,6 +58,7 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void CurveTest()
         {
+            _drone.ConstructCommandResponse("takeoff");
             string response = _drone.ConstructCommandResponse("curve 20 20 20 20 100 20 10");
             Assert.AreEqual("ok", response);
             Assert.AreEqual(10, _drone.Height);
@@ -66,6 +67,7 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void GoTest()
         {
+            _drone.ConstructCommandResponse("takeoff");
             string response = _drone.ConstructCommandResponse("go 20 100 20 10");
             Assert.AreEqual("ok", response);
             Assert.AreEqual(10, _drone.Height);
