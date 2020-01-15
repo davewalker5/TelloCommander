@@ -81,13 +81,9 @@ namespace TelloCommander.Connections
                     }
                 }
             }
-            catch (NotInFlightException ex)
+            catch (Exception ex)
             {
                 response = $"Error : {ex.Message}";
-            }
-            catch
-            {
-                throw;
             }
 
             return response;
