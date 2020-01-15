@@ -9,10 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Tests", "Tel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloSimulator", "TelloSimulator\TelloSimulator.csproj", "{E90A9773-CEF9-44BA-96B5-ADEBD0F80374}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.GitHub.Controller", "TelloCommander.GitHub.Controller\TelloCommander.GitHub.Controller.csproj", "{98F557EA-4A80-4CCF-9053-06AE8F05ABFC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.GitHub.Monitor", "TelloCommander.GitHub.Monitor\TelloCommander.GitHub.Monitor.csproj", "{C7F704FE-DC92-4DEF-AE23-E01A96BFD8AC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
