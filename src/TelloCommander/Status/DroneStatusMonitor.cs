@@ -18,6 +18,9 @@ namespace TelloCommander.Status
 
         private CancellationTokenSource _source;
         private StreamWriter _output;
+        private DateTime _lastOutput;
+        private int _outputIntervalMilliseconds;
+        private bool _outputEnabled;
 
         public int Sequence { get; private set; }
         public string Status { get; private set; }
@@ -70,7 +73,7 @@ namespace TelloCommander.Status
                         Error = ex.Message;
                     }
 
-                    if (_output != null)
+                    if (_outputEnabled)
                     {
                         WriteStatus();
                     }
@@ -106,11 +109,12 @@ namespace TelloCommander.Status
         /// Start capturing the status to the specified file (in CSV format)
         /// </summary>
         /// <param name="file"></param>
-        public void StartCapture(string file)
+        /// <param name="intervalMilliseconds"></param>
+        public void StartCapture(string file, int intervalMilliseconds)
         {
             bool needsHeader = !File.Exists(file);
-
             _output = new StreamWriter(file, true, Encoding.UTF8);
+            _outputIntervalMilliseconds = (intervalMilliseconds > 0) ? intervalMilliseconds : 1000;
 
             if (needsHeader)
             {
@@ -134,6 +138,12 @@ namespace TelloCommander.Status
                 _output.Write("Acceleration Z,");
                 _output.WriteLine("Error");
             }
+
+            // Write the first status record immediately
+            WriteStatusRecord();
+
+            _lastOutput = DateTime.Now;
+            _outputEnabled = true;
         }
 
         /// <summary>
@@ -141,8 +151,9 @@ namespace TelloCommander.Status
         /// </summary>
         public void StopCapture()
         {
-            if (_output != null)
+            if (_outputEnabled)
             {
+                _outputEnabled = false;
                 _output.Close();
                 _output.Dispose();
                 _output = null;
@@ -155,6 +166,19 @@ namespace TelloCommander.Status
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void WriteStatus()
+        {
+            int interval = (int)(DateTime.Now - _lastOutput).TotalMilliseconds;
+            if (interval >= _outputIntervalMilliseconds)
+            {
+                WriteStatusRecord();
+                _lastOutput = DateTime.Now;
+            }
+        }
+
+        /// <summary>
+        /// Write a status record to the capture file
+        /// </summary>
+        private void WriteStatusRecord()
         {
             _output.Write($"{DateTime.Now.ToString("yyyy-mmm-dd hh:mm:ss.fff")},");
             _output.Write($"\"{Sequence}\",");

@@ -57,8 +57,9 @@ namespace TelloCommander.Commander
                                     ReportDroneStatus();
                                     LastResponse = "ok";
                                     break;
-                                case "capturestatus":
-                                    _monitor.StartCapture(words[1]);
+                                case "startcapture":
+                                    int.TryParse(words[2], out int intervalMilliseconds);
+                                    _monitor.StartCapture(words[1], intervalMilliseconds);
                                     LastResponse = "ok";
                                     break;
                                 case "stopcapture":

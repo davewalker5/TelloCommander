@@ -17,9 +17,11 @@ namespace TelloCommander.Simulator
             Dictionary = dictionary;
             Position = new Position();
 
+            // Default battery parameters - 760 is 13 minutes which is the advertised
+            // flight time per charge
             Battery = 100;
             CriticalBatteryLevel = 10;
-            SingleChargeFlightTimeSeconds = 300;
+            SingleChargeFlightTimeSeconds = 760;
 
             _timer.Interval = 1000;
             _timer.Elapsed += OnBatteryTimer;
