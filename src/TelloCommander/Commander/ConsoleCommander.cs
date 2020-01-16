@@ -22,6 +22,8 @@ namespace TelloCommander.Commander
         /// <param name="enableStatusMonitor"></param>
         public void Run(bool enableStatusMonitor = true)
         {
+            char[] separators = { ' ' };
+
             try
             {
                 Connect();
@@ -48,14 +50,25 @@ namespace TelloCommander.Commander
 
                         try
                         {
-                            if (command.Trim() == "?")
+                            string[] words = command.Trim().Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                            switch (words[0])
                             {
-                                ReportDroneStatus();
-                                LastResponse = "ok";
-                            }
-                            else
-                            {
-                                RunCommand(command);
+                                case "?":
+                                    ReportDroneStatus();
+                                    LastResponse = "ok";
+                                    break;
+                                case "startcapture":
+                                    int.TryParse(words[2], out int intervalMilliseconds);
+                                    _monitor.StartCapture(words[1], intervalMilliseconds);
+                                    LastResponse = "ok";
+                                    break;
+                                case "stopcapture":
+                                    _monitor.StopCapture();
+                                    LastResponse = "ok";
+                                    break;
+                                default:
+                                    RunCommand(command);
+                                    break;
                             }
                         }
 #pragma warning disable RECS0022
@@ -104,7 +117,7 @@ namespace TelloCommander.Commander
                 Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} TOF          : {_monitor.TOF}");
                 Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Height       : {_monitor.Height}");
                 Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Battery      : {_monitor.Battery}");
-                Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Barometer    : {_monitor.Battery}");
+                Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Barometer    : {_monitor.Barometer}");
                 Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Time         : {_monitor.Time}");
                 Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Acceleration : {_monitor.Acceleration.ToString()}");
             }

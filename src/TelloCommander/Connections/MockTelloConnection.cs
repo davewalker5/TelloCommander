@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Interfaces;
+using TelloCommander.Simulator;
 
 [assembly: InternalsVisibleTo("TelloCommander.Tests")]
 namespace TelloCommander.Connections

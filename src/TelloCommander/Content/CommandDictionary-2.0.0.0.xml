@@ -575,7 +575,7 @@
       <MockResponse>ok</MockResponse>
       <Arguments>
         <ArgumentDefinition>
-          <Name>file</Name>
+          <Name>seconds</Name>
           <ArgumentType>String</ArgumentType>
           <Required>true</Required>
           <Minimum>0</Minimum>
@@ -592,7 +592,7 @@
       <MockResponse>ok</MockResponse>
       <Arguments>
         <ArgumentDefinition>
-          <Name>file</Name>
+          <Name>seconds</Name>
           <ArgumentType>String</ArgumentType>
           <Required>true</Required>
           <Minimum>0</Minimum>
@@ -609,7 +609,7 @@
       <MockResponse>ok</MockResponse>
       <Arguments>
         <ArgumentDefinition>
-          <Name>file</Name>
+          <Name>seconds</Name>
           <ArgumentType>String</ArgumentType>
           <Required>true</Required>
           <Minimum>1</Minimum>

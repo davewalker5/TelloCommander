@@ -1,6 +1,6 @@
 ﻿namespace TelloCommander.Response
 {
-    public class Acceleration
+    internal class Position
     {
         public decimal X { get; set; }
         public decimal Y { get; set; }

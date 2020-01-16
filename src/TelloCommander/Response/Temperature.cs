@@ -9,5 +9,10 @@
         {
             return $"Minimum: {Minimum} Maximum: {Maximum}";
         }
+
+        public string ToCsv()
+        {
+            return $"\"{Minimum}\",\"{Maximum}\"";
+        }
     }
 }

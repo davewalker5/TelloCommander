@@ -25,6 +25,8 @@ namespace TelloCommander.Udp
             set { _client.Client.SendTimeout = value * 1000; }
         }
 
+        public int Available { get { return _client.Available; } }
+
         public void Close()
         {
             _client.Dispose();
@@ -37,9 +39,15 @@ namespace TelloCommander.Udp
             return sent;
         }
 
-        public string Read()
+        public byte[] ReadBytes()
         {
             byte[] received = _client.Receive(ref _receiveEndpoint);
+            return received;
+        }
+
+        public string Read()
+        {
+            byte[] received = ReadBytes();
             string data = Encoding.UTF8.GetString(received);
             return data;
         }
@@ -69,7 +77,6 @@ namespace TelloCommander.Udp
                     }
                 }
             }
-
         }
     }
 }
