@@ -106,6 +106,9 @@ static void Main(string[] args)
     monitor.Listen(DroneStatusMonitor.DefaultTelloStatusPort);
     monitor.DroneStatusUpdated += OnDroneStatusUpdated;
 
+    // Optionally, capture the status to a CSV file
+    // monitor.StartCapture("path_to_csv", interval_in_milliseconds);
+
     while (true)
     {
         Thread.Sleep(1000);
