@@ -180,7 +180,13 @@ new ConsoleCommander(new TelloConnection(), dictionary).Run(true);
 
 The argument passed to the "ReadStandardDictionary" is the Tello API version number and defines the set of available commands (see the [wiki](https://github.com/davewalker5/TelloCommander/wiki/Home)) for more  details.
 
-In addition to the commands supported by the drone and custom commands supported by the DroneCommander, you can enter "?" to report the status of the drone.
+In addition to the commands supported by the drone and custom commands supported by the DroneCommander, the ConsoleCommander supports the following commands:
+
+| Command | Parameters | Purpose |
+|  --- | --- | --- |
+| ? | None | Report the current status to the console |
+| startcapture | file interval | Start writing status records to the specified file (in CSV format) at the specified interval (in milliseconds) |
+| stopcapture | None | Stop file capture if it's in progress |
 
 ## Wiki
 
