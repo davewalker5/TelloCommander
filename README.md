@@ -16,8 +16,8 @@ It provides the following connection types:
 | Type | Purpose |
 | --- | --- |
 | Mock | Uses a mock that simulates responses from the drone without establishing a connection |
-| Simulator | The API is connected to the simulator, running on the same machine |
-| Drone | The API is connected to a real drone |
+| Simulator | The application is connected to the simulator, running on the same machine |
+| Drone | The application is connected to a real drone |
 
 It is based on the ConsoleCommander class provided by the API.
 
