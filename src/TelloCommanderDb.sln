@@ -5,11 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.Migrati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data", "TelloCommander.Data\TelloCommander.Data.csproj", "{46F57089-4D48-495C-ACDD-0DC3C6F6BEC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.Sqlite", "TelloCommander.Data.Sqlite\TelloCommander.Data.Sqlite.csproj", "{C4B64EBF-BC2C-4DF8-83FE-8002E8F870D8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.InMemory", "TelloCommander.Data.InMemory\TelloCommander.Data.InMemory.csproj", "{61687173-4333-42A9-B2EC-D5511C52E009}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.Tests", "TelloCommander.Data.Tests\TelloCommander.Data.Tests.csproj", "{E11C767F-5505-45A5-9FA6-9B3DED41A946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.Sqlite", "TelloCommander.Data.Sqlite\TelloCommander.Data.Sqlite.csproj", "{1C87AB08-A731-4F05-8AD1-B2A530EB8FAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		{46F57089-4D48-495C-ACDD-0DC3C6F6BEC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46F57089-4D48-495C-ACDD-0DC3C6F6BEC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46F57089-4D48-495C-ACDD-0DC3C6F6BEC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4B64EBF-BC2C-4DF8-83FE-8002E8F870D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4B64EBF-BC2C-4DF8-83FE-8002E8F870D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4B64EBF-BC2C-4DF8-83FE-8002E8F870D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4B64EBF-BC2C-4DF8-83FE-8002E8F870D8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61687173-4333-42A9-B2EC-D5511C52E009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61687173-4333-42A9-B2EC-D5511C52E009}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61687173-4333-42A9-B2EC-D5511C52E009}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,6 +33,10 @@ Global
 		{E11C767F-5505-45A5-9FA6-9B3DED41A946}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E11C767F-5505-45A5-9FA6-9B3DED41A946}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E11C767F-5505-45A5-9FA6-9B3DED41A946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C87AB08-A731-4F05-8AD1-B2A530EB8FAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C87AB08-A731-4F05-8AD1-B2A530EB8FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C87AB08-A731-4F05-8AD1-B2A530EB8FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C87AB08-A731-4F05-8AD1-B2A530EB8FAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		description = Database Collector for TelloCommander Drone Telemetry

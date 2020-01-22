@@ -26,7 +26,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
-    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Content\TelloCommanderDbLicense.txt" />

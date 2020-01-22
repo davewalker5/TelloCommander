@@ -15,7 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TelloCommander.Data\TelloCommander.Data.csproj" />
-    <ProjectReference Include="..\TelloCommander.Data.Sqlite\TelloCommander.Data.Sqlite.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />
