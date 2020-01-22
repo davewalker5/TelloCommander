@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.ConsoleApp", "TelloCommanderConsole\TelloCommander.ConsoleApp.csproj", "{292CB991-4AAD-4D7E-BB9D-8AFB1EA3693B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.ConsoleApp", "TelloCommander.ConsoleApp\TelloCommander.ConsoleApp.csproj", "{292CB991-4AAD-4D7E-BB9D-8AFB1EA3693B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.CommandLine", "TelloCommander.CommandLine\TelloCommander.CommandLine.csproj", "{8CE981A8-72BC-4E6B-A15C-BA48E69AAF0A}"
 EndProject

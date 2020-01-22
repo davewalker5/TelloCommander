@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>TelloCommander.CommandLine</PackageId>
-    <ReleaseVersion>1.0.0.5</ReleaseVersion>
     <PackageVersion>1.0.0.5</PackageVersion>
     <Authors>Dave Walker</Authors>
     <Copyright>Copyright (c) 2020 Dave Walker</Copyright>
@@ -19,5 +18,16 @@
 
   <ItemGroup>
     <PackageReference Include="TelloCommander" Version="1.0.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Content\TelloCommanderConsoleLicense.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\TelloCommanderConsoleLicense.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
