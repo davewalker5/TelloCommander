@@ -14,4 +14,4 @@ jobs:
       with:
         dotnet-version: 3.0.100
     - name: Build
-      run: dotnet build --configuration Release src/TelloCommander.sln
+      run: dotnet build --configuration Release src/TelloCommanderConsole.sln
