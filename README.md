@@ -21,6 +21,22 @@ It provides the following connection types:
 
 It is based on the ConsoleCommander class provided by the API.
 
+## Pre-requisites
+
+You will need .NET Core 3.1.101 and the .NET CLI installed to build and run the application. Instructions for downloading and installing are on the .NET website:
+
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+
+## Building the Application
+
+* Clone or download the repository
+* Open a terminal window and CD to the folder containing the TelloCommanderConsole.sln solution file
+* Enter the following command to build the application:
+
+```
+dotnet build
+```
+
 ## Running the Application
 
 To run the application, open a terminal window, change to the folder containing the compiled output for the TelloCommanderConsole project and run the following command:
