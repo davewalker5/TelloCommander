@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>TelloCommander.Data.InMemory</PackageId>
-    <ReleaseVersion>1.0.0.5</ReleaseVersion>
+    <ReleaseVersion>1.0.0.4</ReleaseVersion>
     <PackageVersion>1.0.0.5</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <Authors>Dave Walker</Authors>
@@ -33,48 +33,8 @@
     <None Remove="Content\TelloCommanderDbLicense.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\..\..\.nuget\packages\tellocommander\1.0.0.5\contentFiles\any\netstandard2.1\Content\CommandDictionary.xsd" Condition="Exists('$(NuGetPackageRoot)tellocommander/1.0.0.5/contentFiles/any/netstandard2.1/Content/CommandDictionary.xsd')">
-      <NuGetPackageId>TelloCommander</NuGetPackageId>
-      <NuGetPackageVersion>1.0.0.5</NuGetPackageVersion>
-      <NuGetItemType>Content</NuGetItemType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Content/CommandDictionary.xsd</TargetPath>
-      <DestinationSubDirectory>Content/</DestinationSubDirectory>
-      <Private>True</Private>
-      <Link>Content/CommandDictionary.xsd</Link>
-    </Content>
-    <Content Include="..\..\..\..\..\.nuget\packages\tellocommander\1.0.0.5\contentFiles\any\netstandard2.1\Content\CommandDictionary-1.3.0.0.xml" Condition="Exists('$(NuGetPackageRoot)tellocommander/1.0.0.5/contentFiles/any/netstandard2.1/Content/CommandDictionary-1.3.0.0.xml')">
-      <NuGetPackageId>TelloCommander</NuGetPackageId>
-      <NuGetPackageVersion>1.0.0.5</NuGetPackageVersion>
-      <NuGetItemType>Content</NuGetItemType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Content/CommandDictionary-1.3.0.0.xml</TargetPath>
-      <DestinationSubDirectory>Content/</DestinationSubDirectory>
-      <Private>True</Private>
-      <Link>Content/CommandDictionary-1.3.0.0.xml</Link>
-    </Content>
-    <Content Include="..\..\..\..\..\.nuget\packages\tellocommander\1.0.0.5\contentFiles\any\netstandard2.1\Content\CommandDictionary-2.0.0.0.xml" Condition="Exists('$(NuGetPackageRoot)tellocommander/1.0.0.5/contentFiles/any/netstandard2.1/Content/CommandDictionary-2.0.0.0.xml')">
-      <NuGetPackageId>TelloCommander</NuGetPackageId>
-      <NuGetPackageVersion>1.0.0.5</NuGetPackageVersion>
-      <NuGetItemType>Content</NuGetItemType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Content/CommandDictionary-2.0.0.0.xml</TargetPath>
-      <DestinationSubDirectory>Content/</DestinationSubDirectory>
-      <Private>True</Private>
-      <Link>Content/CommandDictionary-2.0.0.0.xml</Link>
-    </Content>
     <Content Include="Content\TelloCommanderDbLicense.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\..\..\.nuget\packages\tellocommander\1.0.0.5\contentFiles\any\netstandard2.1\Content\TelloCommanderLicense.txt" Condition="Exists('$(NuGetPackageRoot)tellocommander/1.0.0.5/contentFiles/any/netstandard2.1/Content/TelloCommanderLicense.txt')">
-      <NuGetPackageId>TelloCommander</NuGetPackageId>
-      <NuGetPackageVersion>1.0.0.5</NuGetPackageVersion>
-      <NuGetItemType>Content</NuGetItemType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Content/TelloCommanderLicense.txt</TargetPath>
-      <DestinationSubDirectory>Content/</DestinationSubDirectory>
-      <Private>True</Private>
-      <Link>Content/TelloCommanderLicense.txt</Link>
     </Content>
   </ItemGroup>
   <ItemGroup>
