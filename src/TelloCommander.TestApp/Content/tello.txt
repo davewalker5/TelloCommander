@@ -1,9 +1,0 @@
-# Example Tello control script
-battery?
-takeoff
-height?
-up 50
-height?
-runscript rotate.txt
-land
-battery?

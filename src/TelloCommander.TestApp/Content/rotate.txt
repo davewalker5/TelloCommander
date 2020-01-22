@@ -1,4 +1,0 @@
-# Rotate the drone by 180 degrees, wait, then rotate it back
-cw 180
-wait 5
-ccw 180
