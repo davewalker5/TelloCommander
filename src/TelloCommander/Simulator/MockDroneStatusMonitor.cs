@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 using TelloCommander.Interfaces;
 using TelloCommander.Response;
-using TelloCommander.Udp;
+using TelloCommander.Status;
 
-namespace TelloCommander.Status
+namespace TelloCommander.Simulator
 {
-    [ExcludeFromCodeCoverage]
-    public class DroneStatusMonitor : StatusMonitorBase, IDroneStatus, IDroneStatusMonitor, IDisposable
+    public class MockDroneStatusMonitor : StatusMonitorBase, IDroneStatus, IDroneStatusMonitor, IDisposable
     {
         /// <summary>
         /// Event raised when the event arguments are updated
@@ -17,7 +15,7 @@ namespace TelloCommander.Status
         public event EventHandler<DroneStatusEventArgs> DroneStatusUpdated;
 
         /// <summary>
-        /// Status the status listener on another thread
+        /// Start the mock status listener on another thread
         /// </summary>
         /// <param name="port"></param>
         public override void Listen(int port)
@@ -29,9 +27,6 @@ namespace TelloCommander.Status
             {
                 token.ThrowIfCancellationRequested();
 
-                TelloUdpListener listener = new TelloUdpListener();
-                listener.Connect(port);
-
                 Sequence = 1;
 
                 while (true)
@@ -39,7 +34,7 @@ namespace TelloCommander.Status
                     try
                     {
                         Error = null;
-                        Status = listener.Read();
+                        Status = $"pitch:0;roll:0;yaw:0;vgx:0;vgy:0;vgz:0;templ:0;temph:0;tof:0;h:0;bat:100;baro:0.00;time:0;agx:0.00;agy:0.00;agz:0.00;";
                         RawValues = ResponseParser.ParseToDictionary(Status);
                         Sequence++;
                     }
@@ -59,10 +54,9 @@ namespace TelloCommander.Status
                     if (token.IsCancellationRequested)
                     {
                         token.ThrowIfCancellationRequested();
-                        StopCapture();
-                        listener.Close();
-                        listener.Dispose();
                     }
+
+                    Thread.Sleep(500);
                 }
 
             }, token);
