@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>TelloCommander.Data</PackageId>
+    <ReleaseVersion>1.0.0.5</ReleaseVersion>
+    <PackageVersion>1.0.0.5</PackageVersion>
+    <PackOnBuild>true</PackOnBuild>
+    <Authors>Dave Walker</Authors>
+    <Copyright>Copyright (c) 2020 Dave Walker</Copyright>
+    <Owners>Dave Walker</Owners>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Summary>Database Collector for TelloCommander Drone Telemetry</Summary>
+    <PackageTags>Tello TelloCommander Data Collector</PackageTags>
+    <Title>Database Collector for TelloCommander Drone Telemetry</Title>
+    <Description>Database Collector for TelloCommander Drone Telemetry</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="TelloCommander" Version="1.0.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Content\TelloCommanderDbLicense.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\TelloCommanderDbLicense.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
