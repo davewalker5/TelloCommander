@@ -30,7 +30,13 @@ Release 1.0.0.5 of TelloCommander introduces the ability to stream drone telemet
 | [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/) | [TelloCommander.Data](https://www.nuget.org/packages/TelloCommander.Data/) | Core SQL telemetry capture API |
 | [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/) | [TelloCommander.Data.InMemory](https://www.nuget.org/packages/TelloCommander.Data.InMemory/) | EF database context for an in-memory database |
 | [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/) | [TelloCommander.Data.Sqlite](https://www.nuget.org/packages/TelloCommander.Data.Sqlite/) | EF database context for a SQLite database |
-| [TelloCommanderConsole]() | [TelloCommander.CommandLine](https://www.nuget.org/packages/TelloCommander.CommandLine/) | Basis for a command-line controller for the Tello with example application |
+| [TelloCommanderConsole](https://github.com/davewalker5/TelloCommanderConsole) | [TelloCommander.CommandLine](https://www.nuget.org/packages/TelloCommander.CommandLine/) | Basis for a command-line controller for the Tello with example application |
+
+Release 1.0.0.5 also changed the location of the folowing classes:
+
+| Class | Original Namespace | New Namespace |
+| --- | --- | --- |
+| 
 
 ## Getting Started
 
