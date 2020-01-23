@@ -20,6 +20,18 @@ Tello Commander is a C# API for controlling a Tello drone, offering the followin
 - Background monitoring and reporting of drone status
 - Capture of status information to CSV
 
+## Version 1.0.0.5
+
+Release 1.0.0.5 of TelloCommander introduces the ability to stream drone telemetry to a SQL database for subsequent analysis and splits the project into the following repos/libraries/NuGet packages:
+
+| Repo | NuGet Package | Purpose |
+| --- | --- | --- |
+| [TelloCommander](https://github.com/davewalker5/TelloCommander/) | [TelloCommander](https://www.nuget.org/packages/TelloCommander/) | Core Tello control API |
+| [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/) | [TelloCommander.Data](https://www.nuget.org/packages/TelloCommander.Data/) | Core SQL telemetry capture API |
+| [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/) | [TelloCommander.Data.InMemory](https://www.nuget.org/packages/TelloCommander.Data.InMemory/) | EF database context for an in-memory database |
+| [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/) | [TelloCommander.Data.Sqlite](https://www.nuget.org/packages/TelloCommander.Data.Sqlite/) | EF database context for an in-memory database |
+| [TelloCommanderConsole]() | [TelloCommander.CommandLine](https://www.nuget.org/packages/TelloCommander.CommandLine/) | Basis for a command-line controller for the Tello with example application |
+
 ## Getting Started
 
 Once the API is referenced by a project, you should include the following "using" statements to import the necessary types:
