@@ -8,7 +8,7 @@ using TelloCommander.Simulator;
 namespace TelloCommander.Tests
 {
     [TestClass]
-    [Ignore("Tests in this class work consistently locally but fails intermittently on GitHub")]
+    [Ignore("Tests in this class work consistently locally but fail intermittently on GitHub")]
     public class MockStatusMonitorTest
     {
         private MockDroneStatusMonitor _monitor;
