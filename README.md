@@ -132,7 +132,7 @@ Valid properties for the property list are those returned in the Tello status, a
 
 * [Tello SDK Documentation EN_1.3.pdf](https://dl-cdn.ryzerobotics.com/downloads/tello/20180910/Tello%20SDK%20Documentation%20EN_1.3.pdf)
 
-For example, to collect the height and battery at 1s intervals, use the folowing:
+For example, to collect the height and battery charge at 1s intervals, use the folowing:
 
 ```
 startdbcapture MY-TELLO My-Session-1 1000 h,bat
