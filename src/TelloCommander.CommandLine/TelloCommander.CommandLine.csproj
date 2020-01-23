@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>TelloCommander.CommandLine</PackageId>
+    <PackageVersion>1.0.0.5</PackageVersion>
+    <Authors>Dave Walker</Authors>
+    <Copyright>Copyright (c) 2020 Dave Walker</Copyright>
+    <Owners>Dave Walker</Owners>
+    <PackageProjectUrl>https://github.com/davewalker5/TelloCommanderConsole</PackageProjectUrl>
+    <PackageReleaseNotes>Extracted from the TelloCommander API library</PackageReleaseNotes>
+    <Summary>C# command line utilities for controlling a Tello drone</Summary>
+    <PackageTags>Tello API Console CommandLine</PackageTags>
+    <Title>TelloCommander.CommandLine</Title>
+    <Description>C# command line utilities for controlling a Tello drone</Description>
+    <PackOnBuild>true</PackOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Content\TelloCommanderCommandLineLicense.txt" />
+    <None Remove="Content\TelloCommander.CommandLine.License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\TelloCommander.CommandLine.License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="TelloCommander" Version="1.0.0.5" />
+    <PackageReference Include="TelloCommander.Data" Version="1.0.0.5" />
+    <PackageReference Include="TelloCommander.Data.Sqlite" Version="1.0.0.5" />
+  </ItemGroup>
+</Project>
