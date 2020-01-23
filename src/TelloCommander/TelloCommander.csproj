@@ -3,16 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>TelloCommander</PackageId>
-    <ReleaseVersion>1.0.0.4</ReleaseVersion>
-    <PackageVersion>1.0.0.4</PackageVersion>
+    <ReleaseVersion>1.0.0.5</ReleaseVersion>
+    <PackageVersion>1.0.0.5</PackageVersion>
     <Authors>Dave Walker</Authors>
     <Copyright>Copyright (c) 2020 Dave Walker</Copyright>
     <Owners>Dave Walker</Owners>
     <PackageProjectUrl>https://github.com/davewalker5/TelloCommander</PackageProjectUrl>
-    <PackageReleaseNotes>Added status capture to CSV
-Added additional telemetry to mock drone
-Added checks for in flight status to mock drone
-Added drone telemetry reporting to simulator</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed month formatting issue in captured CSV
+Refactored the DroneStatusMonitor implementation
+Added the IDroneStatusMonitor interface
+Added the MockDroneStatusMonitor class
+Added unit tests for the mock status monitor</PackageReleaseNotes>
     <Summary>C# API for controlling a Tello drone</Summary>
     <PackageTags>Tello API</PackageTags>
     <Title>TelloCommander</Title>
@@ -35,7 +36,7 @@ Added drone telemetry reporting to simulator</PackageReleaseNotes>
     <None Remove="Content\CommandDictionary.xsd" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\TelloCommanderLicense.txt">
+    <Content Include="Content\TelloCommander.License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\CommandDictionary-1.3.0.0.xml">
