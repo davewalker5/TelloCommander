@@ -1,15 +1,15 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.Migrations", "TelloCommander.Data.Migrations\TelloCommander.Data.Migrations.csproj", "{3DCA2825-C7FD-43C8-A600-EEA1E633E73B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data", "TelloCommander.Data\TelloCommander.Data.csproj", "{D7475533-B6CD-4130-BF25-7CFE51287CF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data", "TelloCommander.Data\TelloCommander.Data.csproj", "{46F57089-4D48-495C-ACDD-0DC3C6F6BEC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.Tests", "TelloCommander.Data.Tests\TelloCommander.Data.Tests.csproj", "{9914E4CC-1EC7-46E3-8757-244467435D15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.InMemory", "TelloCommander.Data.InMemory\TelloCommander.Data.InMemory.csproj", "{61687173-4333-42A9-B2EC-D5511C52E009}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.InMemory", "TelloCommander.Data.InMemory\TelloCommander.Data.InMemory.csproj", "{146C11D4-B515-4E1D-BFDC-6AAFD5142FBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.Tests", "TelloCommander.Data.Tests\TelloCommander.Data.Tests.csproj", "{E11C767F-5505-45A5-9FA6-9B3DED41A946}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.Sqlite", "TelloCommander.Data.Sqlite\TelloCommander.Data.Sqlite.csproj", "{EDD518DD-852A-499A-AD2C-733CEC87C0A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.Sqlite", "TelloCommander.Data.Sqlite\TelloCommander.Data.Sqlite.csproj", "{1C87AB08-A731-4F05-8AD1-B2A530EB8FAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Data.Migrations", "TelloCommander.Data.Migrations\TelloCommander.Data.Migrations.csproj", "{C19CCCF8-DC57-4FBE-98EB-773BC8DB2063}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,29 +17,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3DCA2825-C7FD-43C8-A600-EEA1E633E73B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DCA2825-C7FD-43C8-A600-EEA1E633E73B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DCA2825-C7FD-43C8-A600-EEA1E633E73B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DCA2825-C7FD-43C8-A600-EEA1E633E73B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{46F57089-4D48-495C-ACDD-0DC3C6F6BEC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46F57089-4D48-495C-ACDD-0DC3C6F6BEC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46F57089-4D48-495C-ACDD-0DC3C6F6BEC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46F57089-4D48-495C-ACDD-0DC3C6F6BEC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61687173-4333-42A9-B2EC-D5511C52E009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61687173-4333-42A9-B2EC-D5511C52E009}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61687173-4333-42A9-B2EC-D5511C52E009}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61687173-4333-42A9-B2EC-D5511C52E009}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E11C767F-5505-45A5-9FA6-9B3DED41A946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E11C767F-5505-45A5-9FA6-9B3DED41A946}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E11C767F-5505-45A5-9FA6-9B3DED41A946}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E11C767F-5505-45A5-9FA6-9B3DED41A946}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C87AB08-A731-4F05-8AD1-B2A530EB8FAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C87AB08-A731-4F05-8AD1-B2A530EB8FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C87AB08-A731-4F05-8AD1-B2A530EB8FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C87AB08-A731-4F05-8AD1-B2A530EB8FAD}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		description = Database Collector for TelloCommander Drone Telemetry
-		version = 1.0.0.4
+		{D7475533-B6CD-4130-BF25-7CFE51287CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7475533-B6CD-4130-BF25-7CFE51287CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7475533-B6CD-4130-BF25-7CFE51287CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7475533-B6CD-4130-BF25-7CFE51287CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9914E4CC-1EC7-46E3-8757-244467435D15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9914E4CC-1EC7-46E3-8757-244467435D15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9914E4CC-1EC7-46E3-8757-244467435D15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9914E4CC-1EC7-46E3-8757-244467435D15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{146C11D4-B515-4E1D-BFDC-6AAFD5142FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{146C11D4-B515-4E1D-BFDC-6AAFD5142FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{146C11D4-B515-4E1D-BFDC-6AAFD5142FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{146C11D4-B515-4E1D-BFDC-6AAFD5142FBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDD518DD-852A-499A-AD2C-733CEC87C0A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD518DD-852A-499A-AD2C-733CEC87C0A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD518DD-852A-499A-AD2C-733CEC87C0A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD518DD-852A-499A-AD2C-733CEC87C0A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C19CCCF8-DC57-4FBE-98EB-773BC8DB2063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C19CCCF8-DC57-4FBE-98EB-773BC8DB2063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C19CCCF8-DC57-4FBE-98EB-773BC8DB2063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C19CCCF8-DC57-4FBE-98EB-773BC8DB2063}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
