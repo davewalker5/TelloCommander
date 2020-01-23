@@ -128,6 +128,16 @@ The arguments to the "startdbcapture" command are as follows:
 | interval | The collection interval, in milliseconds e.g. 1000 = 1 second. A value <= 0 defaults to 1000 ms |
 | property list | A comma-separated list of the properties to capture e.g. pitch,roll,yaw |
 
+Valid properties for the property list are those returned in the Tello status, as documented in the drone APIs:
+
+* [Tello SDK Documentation EN_1.3.pdf](https://dl-cdn.ryzerobotics.com/downloads/tello/20180910/Tello%20SDK%20Documentation%20EN_1.3.pdf)
+
+For example, to collect the height and battery at 1s intervals, use the folowing:
+
+```
+startdbcapture MY-TELLO My-Session-1 1000 h,bat
+```
+
 ### Closing the Connection
 
 Before closing the application, please:
