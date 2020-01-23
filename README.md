@@ -114,8 +114,10 @@ In addition to the commands supported by the drone and the custom commands provi
 | Command | Parameters | Purpose |
 |  --- | --- | --- |
 | ? | None | Report the current status to the console |
-| startcapture | file interval | Start writing status records to the specified file (in CSV format) at the specified interval (in milliseconds) |
+| startcapture | file interval | Start writing telemetry to the specified file (in CSV format) at the specified interval (in milliseconds) |
 | stopcapture | None | Stop file capture if it's in progress |
+| startdbcapture | drone session interval [property list] | Start writing telemetry to th SQLite database defined in the appsettings.json file |
+| stopdbcapture | None | Stop writing telemetry to a database if it's in  progress |
 
 ### Closing the Connection
 
