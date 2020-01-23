@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Commander;
@@ -8,7 +7,6 @@ using TelloCommander.Interfaces;
 
 namespace TelloCommander.CommandLine
 {
-    [ExcludeFromCodeCoverage]
     public class ConsoleCommanderWrapper
     {
         /// <summary>

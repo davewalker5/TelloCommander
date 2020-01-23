@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using TelloCommander.CommandDictionaries;
 using TelloCommander.Commander;
+using TelloCommander.Data.Collector;
+using TelloCommander.Data.Sqlite;
 using TelloCommander.Interfaces;
 using TelloCommander.Status;
 
 namespace TelloCommander.CommandLine
 {
-    [ExcludeFromCodeCoverage]
     public class ConsoleCommander : DroneCommander
     {
         private readonly DroneStatusMonitor _monitor = new DroneStatusMonitor();
 
         public ConsoleCommander(ITelloConnection connection, CommandDictionary dictionary) : base(connection, dictionary)
         {
-
         }
 
         /// <summary>
@@ -24,6 +23,8 @@ namespace TelloCommander.CommandLine
         public void Run(bool enableStatusMonitor = true)
         {
             char[] separators = { ' ' };
+            TelemetryCollector collector = null;
+            TelloCommanderDbContext context = null;
 
             try
             {
@@ -67,20 +68,34 @@ namespace TelloCommander.CommandLine
                                     _monitor.StopCapture();
                                     LastResponse = "ok";
                                     break;
+                                case "startdbcapture":
+                                    int.TryParse(words[3], out int collectionInterval);
+                                    string[] filters = (words.Length > 4) ? words[4].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries) : null;
+                                    context = new TelloCommanderDbContextFactory().CreateDbContext(null);
+                                    collector = new TelemetryCollector(context, _monitor);
+                                    collector.Start(words[1], words[2], collectionInterval, filters);
+                                    LastResponse = "ok";
+                                    break;
+                                case "stopdbcapture":
+                                    if (collector != null)
+                                    {
+                                        collector.Stop();
+                                        context.Dispose();
+                                        collector = null;
+                                    }
+                                    LastResponse = "ok";
+                                    break;
                                 default:
                                     RunCommand(command);
                                     break;
                             }
-                        }
-#pragma warning disable RECS0022
-                        catch
-#pragma warning restore RECS0022
-                        {
-                            // The error is logged to the history and set as the last response,
-                            // which is output below, so no action is required here
-                        }
 
-                        Console.WriteLine($"Response: {LastResponse}");
+                            Console.WriteLine($"Response: {LastResponse}");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error : {ex.Message}");
+                        }
                     }
                 }
                 while (haveCommand);
