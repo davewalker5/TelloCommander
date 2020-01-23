@@ -119,6 +119,15 @@ In addition to the commands supported by the drone and the custom commands provi
 | startdbcapture | drone session interval [property list] | Start writing telemetry to th SQLite database defined in the appsettings.json file |
 | stopdbcapture | None | Stop writing telemetry to a database if it's in  progress |
 
+The arguments to the "startdbcapture" command are as follows:
+
+| Name | Description |
+| --- | --- |
+| drone | Name of the drone, as a single word e.g. TELLO-12345 |
+| session | Name of the capture session, as a single word e.g. LoopTheLoop-001 |
+| interval | The collection interval, in milliseconds e.g. 1000 = 1 second. A value <= 0 defaults to 1000 ms |
+| property list | A comma-separated list of the properties to capture e.g. pitch,roll,yaw |
+
 ### Closing the Connection
 
 Before closing the application, please:
