@@ -8,6 +8,7 @@ using TelloCommander.Response;
 
 namespace TelloCommander.Status
 {
+    [ExcludeFromCodeCoverage]
     public abstract class StatusMonitorBase : IDisposable
     {
         public const int DefaultTelloStatusPort = 8890;

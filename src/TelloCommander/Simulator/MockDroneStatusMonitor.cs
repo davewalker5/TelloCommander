@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 using TelloCommander.Interfaces;
@@ -7,6 +8,7 @@ using TelloCommander.Status;
 
 namespace TelloCommander.Simulator
 {
+    [ExcludeFromCodeCoverage]
     public class MockDroneStatusMonitor : StatusMonitorBase, IDroneStatus, IDroneStatusMonitor, IDisposable
     {
         /// <summary>
