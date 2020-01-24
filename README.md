@@ -25,7 +25,7 @@ You will need .NET Core 3.1.101 and the .NET CLI installed to build the library.
 
 [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 
-## Building the Application
+## Building the Library
 
 * Clone or download the repository
 * Open a terminal window and CD to the folder containing the TelloCommanderDb.sln solution file
@@ -37,7 +37,7 @@ dotnet build
 
 ## Getting Started
 
-To be completed
+Details on how to use the drone telemetry capture facilities are provided in the [TelloCommander Wiki](https://github.com/davewalker5/TelloCommander/wiki)
 
 ## Wiki
 
