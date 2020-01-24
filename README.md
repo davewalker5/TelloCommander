@@ -104,83 +104,6 @@ Command  : land
 Response : ok
 ```
 
-## Monitoring the Status of the Drone
-
-The DroneStatusMonitor class reads the status from the drone, parses the raw status and presents those values to the calling application. It also provides an event subscription model for receiving updates to the drone status.
-
-To use it, first reference the required namespaces:
-
-```csharp
-using TelloCommander.Status;
-```
-
-The following code snippet can be cut and pasted into a console application's "Program" class to demonstrate the status monitor:
-
-```csharp
-static void Main(string[] args)
-{
-    // Note that the drone must already be in API mode for the monitoring
-    // to work. Create an instance of the monitor and start listening in
-    // the background. Subscribe to status update events to report status
-    DroneStatusMonitor monitor = new DroneStatusMonitor();
-    monitor.Listen(DroneStatusMonitor.DefaultTelloStatusPort);
-    monitor.DroneStatusUpdated += OnDroneStatusUpdated;
-
-    // Optionally, capture the status to a CSV file
-    // monitor.StartCapture("path_to_csv", interval_in_milliseconds);
-
-    while (true)
-    {
-        Thread.Sleep(1000);
-    }
-}
-
-private static void OnDroneStatusUpdated(object sender, DroneStatusEventArgs e)
-{
-    Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Status : {e.Status.Status}");
-    if (!string.IsNullOrEmpty(e.Status.Error))
-    {
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Error  : {e.Status.Error}");
-    }
-    else if (!string.IsNullOrEmpty(e.Status.Status))
-    {
-        // If there's no error and the status has a value, it's been successfully read and
-        // the public properties on the monitor will be populated. The sequence number is
-        // incremented every time the status is read from the drone. If it stops increasing
-        // for any length of time, then either the monitor has stopped or the drone has
-        // stopped  broadcasting its status
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Sequence     : {e.Status.Sequence}");
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Attitude     : {e.Status.Attitude.ToString()}");
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Speed        : {e.Status.Speed.ToString()}");
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Temperature  : {e.Status.Temperature.ToString()}");
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} TOF          : {e.Status.TOF}");
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Height       : {e.Status.Height}");
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Battery      : {e.Status.Battery}");
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Barometer    : {e.Status.Battery}");
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Time         : {e.Status.Time}");
-        Console.WriteLine($"{DateTime.Now.ToString("hh:mm:ss.fff")} Acceleration : {e.Status.Acceleration.ToString()}");
-    }
-}
-```
-
-The status is reported as follows:
-
-```
-09:54:23.639 Status : pitch:0;roll:0;yaw:0;vgx:0;vgy:0;vgz:0;templ:0;temph:0;tof:0;h:0;bat:0;baro:0.00;time:0;agx:0.00;agy:0.00;agz:0.00;
-09:54:23.639 Sequence     : 5
-09:54:23.639 Attitude     : Pitch: 0 Roll: 0 Yaw: 0
-09:54:23.640 Speed        : X: 0 Y: 0 Z: 0
-09:54:23.640 Temperature  : Minimum: 0 Maximum: 0
-09:54:23.640 TOF          : 0
-09:54:23.640 Height       : 0
-09:54:23.640 Battery      : 0
-09:54:23.640 Barometer    : 0
-09:54:23.640 Time         : 0
-09:54:23.640 Acceleration : X: 0.00 Y: 0.00 Z: 0.00
-```
-
-Please note that the drone must be in API mode in order for drone status to be reported. This can be achieved by creating a DroneCommander and connecting to the drone (see above).
-
 ## Putting it Together
 
 The ConsoleCommander class demonstrates background status monitoring with an interactive console-based drone commander. To use it, first reference the required namespaces:
@@ -213,12 +136,15 @@ In addition to the commands supported by the drone and custom commands supported
 More complete information on the capabilities and use of the API are provided in the Wiki:
 
 * [About TelloCommander](https://github.com/davewalker5/TelloCommander/wiki/Home)
+* [API Summary](https://github.com/davewalker5/TelloCommander/wiki/API-Summary)
 * [Building and testing the API](https://github.com/davewalker5/TelloCommander/wiki/Building-and-Testing-the-API)
+* [Command dictionaries](https://github.com/davewalker5/TelloCommander/wiki/Command-Dictionaries)
+* [Controlling the drone with the API](https://github.com/davewalker5/TelloCommander/wiki/Controlling-the-Drone-With-the-API)
+* [Custom commands](https://github.com/davewalker5/TelloCommander/wiki/Custom-Commands)
 * [The demonstration application](https://github.com/davewalker5/TelloCommander/wiki/Demonstration-Application)
 * [The drone simulator](https://github.com/davewalker5/TelloCommander/wiki/Drone-Simulator)
-* [Command dictionaries](https://github.com/davewalker5/TelloCommander/wiki/Command-Dictionaries)
-* [Custom commands and scripting](https://github.com/davewalker5/TelloCommander/wiki/Custom-Commands-And-Scripting)
-* [Creating applications using the API](https://github.com/davewalker5/TelloCommander/wiki/Creating-Applications-With-the-Api)
+* [Capturing drone telemetry](https://github.com/davewalker5/TelloCommander/wiki/Drone-Telemetry)
+* [Scripting](https://github.com/davewalker5/TelloCommander/wiki/Scripting)
 
 ## Authors
 
