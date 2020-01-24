@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TelloCommander.Data.Collector;
@@ -61,6 +63,50 @@ namespace TelloCommander.Data.Tests
             Assert.IsTrue(propertyNames.Count() > 1);
 
             Assert.IsTrue(_context.DataPoints.Count() > 0);
+        }
+
+        [TestMethod]
+        public void CollectForExistingDroneTest()
+        {
+            Drone drone = new Drone { Name = DroneName };
+            _context.Drones.Add(drone);
+            _context.SaveChanges();
+
+            _collector.Start(DroneName, SessionName, 1000, null);
+            Thread.Sleep(3000);
+            _collector.Stop();
+
+            Assert.AreEqual(1, _context.Sessions.Count());
+            TelemetrySession session = _context.Sessions.First();
+            Assert.AreEqual(drone.Id, session.DroneId);
+            Assert.IsTrue(_context.Properties.Count() > 0);
+            Assert.IsTrue(_context.DataPoints.Count() > 0);
+        }
+
+        [TestMethod]
+        public void  CollectAndLogToConsoleTest()
+        {
+            string output;
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                using (StreamWriter writer = new StreamWriter(stream))
+                {
+                    TextWriter original = Console.Out;
+                    Console.SetOut(writer);
+
+                    _collector.LogToConsole = true;
+                    _collector.Start(DroneName, SessionName, 1000, null);
+                    Thread.Sleep(3000);
+                    _collector.Stop();
+
+                    Console.SetOut(original);
+                }
+
+                output = Encoding.UTF8.GetString(stream.ToArray());
+            }
+
+            Assert.IsTrue(output.Contains("Writing data for sequence"));
         }
     }
 }
