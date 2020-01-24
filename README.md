@@ -104,47 +104,9 @@ Command  : land
 Response : ok
 ```
 
-## Putting it Together
-
-The ConsoleCommander class demonstrates background status monitoring with an interactive console-based drone commander. To use it, first reference the required namespaces:
-
-```csharp
-using TelloCommander.CommandDictionaries;
-using TelloCommander.Connections;
-using TelloCommander.Interfaces;
-```
-
-The following snippet can then be pasted into the Main() method of a console application to run the application:
-
-```csharp
-CommandDictionary dictionary = CommandDictionary.ReadStandardDictionary("1.3.0.0");
-new ConsoleCommander(new TelloConnection(), dictionary).Run(true);
-```
-
-The argument passed to the "ReadStandardDictionary" is the Tello API version number and defines the set of available commands (see the [wiki](https://github.com/davewalker5/TelloCommander/wiki/Home)) for more  details.
-
-In addition to the commands supported by the drone and custom commands supported by the DroneCommander, the ConsoleCommander supports the following commands:
-
-| Command | Parameters | Purpose |
-|  --- | --- | --- |
-| ? | None | Report the current status to the console |
-| startcapture | file interval | Start writing status records to the specified file (in CSV format) at the specified interval (in milliseconds) |
-| stopcapture | None | Stop file capture if it's in progress |
-
 ## Wiki
 
-More complete information on the capabilities and use of the API are provided in the Wiki:
-
-* [About TelloCommander](https://github.com/davewalker5/TelloCommander/wiki/Home)
-* [API Summary](https://github.com/davewalker5/TelloCommander/wiki/API-Summary)
-* [Building and testing the API](https://github.com/davewalker5/TelloCommander/wiki/Building-and-Testing-the-API)
-* [Command dictionaries](https://github.com/davewalker5/TelloCommander/wiki/Command-Dictionaries)
-* [Controlling the drone with the API](https://github.com/davewalker5/TelloCommander/wiki/Controlling-the-Drone-With-the-API)
-* [Custom commands](https://github.com/davewalker5/TelloCommander/wiki/Custom-Commands)
-* [The demonstration application](https://github.com/davewalker5/TelloCommander/wiki/Demonstration-Application)
-* [The drone simulator](https://github.com/davewalker5/TelloCommander/wiki/Drone-Simulator)
-* [Capturing drone telemetry](https://github.com/davewalker5/TelloCommander/wiki/Drone-Telemetry)
-* [Scripting](https://github.com/davewalker5/TelloCommander/wiki/Scripting)
+More complete information on the capabilities and use of the API are provided in the [Wiki](https://github.com/davewalker5/TelloCommander/wiki)
 
 ## Authors
 
