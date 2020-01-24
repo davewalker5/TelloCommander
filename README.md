@@ -37,6 +37,10 @@ You will need .NET Core 3.1.101 and the .NET CLI installed to build and run the 
 dotnet build
 ```
 
+## Creating the Telemetry Capture Database
+
+The application includes support for writing drone telemetry to a SQLite database. If you intend to use this facility, you must first fulfil the [prerequisites for SQLite database capture](https://github.com/davewalker5/TelloCommander/wiki/Writing-Drone-Telemetry-to-a-SQLite-Database).
+
 ## Running the Application
 
 To run the application, open a terminal window, change to the folder containing the compiled output for the TelloCommanderConsole project and run the following command:
