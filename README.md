@@ -3,6 +3,7 @@
 [![Build Status](https://github.com/davewalker5/TelloCommanderConsole/workflows/.NET%20Core%20CI%20Build/badge.svg)](https://github.com/davewalker5/TelloCommanderConsole/actions)
 [![GitHub issues](https://img.shields.io/github/issues/davewalker5/TelloCommanderConsole)](https://github.com/davewalker5/TelloCommander/issues)
 [![Releases](https://img.shields.io/github/v/release/davewalker5/TelloCommanderConsole.svg?include_prereleases)](https://github.com/davewalker5/TelloCommanderConsole/releases)
+[![NuGet](https://img.shields.io/nuget/v/TelloCommander.CommandLine)](https://www.nuget.org/packages?q=tellocommander.commandline)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/davewalker5/TelloCommanderConsole/blob/master/LICENSE)
 [![Language](https://img.shields.io/badge/language-c%23-blue.svg)](https://github.com/davewalker5/TelloCommanderConsole/)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/davewalker5/TelloCommanderConsole)](https://github.com/davewalker5/TelloCommanderConsole/)
