@@ -4,6 +4,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/davewalker5/TelloCommanderDb)](https://github.com/davewalker5/TelloCommanderDb/issues)
 [![Coverage Status](https://coveralls.io/repos/github/davewalker5/TelloCommanderDb/badge.svg?branch=master)](https://coveralls.io/github/davewalker5/TelloCommanderDb?branch=master)
 [![Releases](https://img.shields.io/github/v/release/davewalker5/TelloCommanderDb.svg?include_prereleases)](https://github.com/davewalker5/TelloCommanderDb/releases)
+[![NuGet](https://img.shields.io/nuget/v/TelloCommander.Data)](https://www.nuget.org/packages?q=tellocommander.data)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/davewalker5/TelloCommanderDb/blob/master/LICENSE)
 [![Language](https://img.shields.io/badge/language-c%23-blue.svg)](https://github.com/davewalker5/TelloCommanderDb/)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/davewalker5/TelloCommanderDb)](https://github.com/davewalker5/TelloCommanderDb/)
