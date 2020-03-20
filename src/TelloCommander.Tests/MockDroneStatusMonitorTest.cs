@@ -9,7 +9,7 @@ namespace TelloCommander.Tests
 {
     [TestClass]
     [Ignore("Tests in this class work consistently locally but fail intermittently on GitHub")]
-    public class MockStatusMonitorTest
+    public class MockDroneStatusMonitorTest
     {
         private MockDroneStatusMonitor _monitor;
 
