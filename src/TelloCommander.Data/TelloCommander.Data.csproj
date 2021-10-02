@@ -3,28 +3,22 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>TelloCommander.Data</PackageId>
-    <PackageVersion>1.0.0.5</PackageVersion>
+    <PackageVersion>1.0.0.6</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <Authors>Dave Walker</Authors>
-    <Copyright>Copyright (c) 2020 Dave Walker</Copyright>
+    <Copyright>Copyright (c) 2020, 2021 Dave Walker</Copyright>
     <Owners>Dave Walker</Owners>
-    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageReleaseNotes>Dependency updates</PackageReleaseNotes>
     <Summary>Database Collector for TelloCommander Drone Telemetry</Summary>
     <PackageTags>Tello TelloCommander Data Collector</PackageTags>
     <Title>Database Collector for TelloCommander Drone Telemetry</Title>
     <Description>Database Collector for TelloCommander Drone Telemetry</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Content\TelloCommander.Data.License.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\TelloCommander.Data.License.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="TelloCommander" Version="1.0.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+    <PackageReference Include="TelloCommander" Version="1.0.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
   </ItemGroup>
 </Project>
