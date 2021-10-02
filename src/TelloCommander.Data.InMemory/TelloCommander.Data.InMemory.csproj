@@ -3,34 +3,28 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>TelloCommander.Data.InMemory</PackageId>
-    <PackageVersion>1.0.0.5</PackageVersion>
+    <PackageVersion>1.0.0.6</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <Authors>Dave Walker</Authors>
-    <Copyright>Copyright (c) 2020 Dave Walker</Copyright>
+    <Copyright>Copyright (c) 2020, 2021 Dave Walker</Copyright>
     <Owners>Dave Walker</Owners>
-    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageReleaseNotes>Dependency updates</PackageReleaseNotes>
     <PackageTags>TelloCommander Tello Database Collector Memory</PackageTags>
     <Title>TelloCommander Drone Telemetry InMemory Database</Title>
     <Description>TelloCommander Drone Telemetry InMemory Database</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TelloCommander.Data\TelloCommander.Data.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Content\TelloCommander.Data.InMemory.License.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\TelloCommander.Data.InMemory.License.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 </Project>
