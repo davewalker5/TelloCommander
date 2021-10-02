@@ -17,9 +17,8 @@ namespace TelloCommander.Tests
         [TestInitialize]
         public void TestInitialise()
         {
-            string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-            UriBuilder builder = new UriBuilder(codeBase);
-            _location = Path.GetDirectoryName(Uri.UnescapeDataString(builder.Path));
+            string location = Assembly.GetExecutingAssembly().Location;
+            _location = Path.GetDirectoryName(location);
         }
 
         [TestMethod]
