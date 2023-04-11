@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <PackageId>TelloCommander</PackageId>
-    <ReleaseVersion>1.0.0.7</ReleaseVersion>
-    <PackageVersion>1.0.0.7</PackageVersion>
+    <ReleaseVersion>1.0.0.8</ReleaseVersion>
+    <PackageVersion>1.0.0.8</PackageVersion>
     <Authors>Dave Walker</Authors>
     <Copyright>Copyright (c) 2020, 2021, 2023 Dave Walker</Copyright>
     <Owners>Dave Walker</Owners>
