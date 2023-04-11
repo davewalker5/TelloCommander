@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageId>TelloCommander.Data.InMemory</PackageId>
-    <PackageVersion>1.0.0.6</PackageVersion>
+    <PackageVersion>1.0.0.7</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <Authors>Dave Walker</Authors>
-    <Copyright>Copyright (c) 2020, 2021 Dave Walker</Copyright>
+    <Copyright>Copyright (c) 2020, 2021, 2023 Dave Walker</Copyright>
     <Owners>Dave Walker</Owners>
     <PackageReleaseNotes>Dependency updates</PackageReleaseNotes>
     <PackageTags>TelloCommander Tello Database Collector Memory</PackageTags>
@@ -20,9 +20,9 @@
     <ProjectReference Include="..\TelloCommander.Data\TelloCommander.Data.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
