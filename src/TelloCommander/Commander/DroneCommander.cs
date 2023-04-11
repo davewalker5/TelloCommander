@@ -262,7 +262,7 @@ namespace TelloCommander.Commander
                 if (_scriptPaths.Count == 0)
                 {
                     // Get the folder containing the current assembly
-                    string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                    string codeBase = Assembly.GetExecutingAssembly().Location;
                     UriBuilder builder = new UriBuilder(codeBase);
                     string folder = Path.GetDirectoryName(Uri.UnescapeDataString(builder.Path));
 
