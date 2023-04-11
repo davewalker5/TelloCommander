@@ -204,9 +204,8 @@ namespace TelloCommander.CommandDictionaries
         /// <returns></returns>
         private static string GetAssemblyLocation()
         {
-            string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-            UriBuilder builder = new UriBuilder(codeBase);
-            string location = Path.GetDirectoryName(Uri.UnescapeDataString(builder.Path));
+            string codeBase = Assembly.GetExecutingAssembly().Location;
+            string location = Path.GetDirectoryName(codeBase);
             return location;
         }
 
