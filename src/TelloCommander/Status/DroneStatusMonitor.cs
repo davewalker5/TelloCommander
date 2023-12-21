@@ -29,7 +29,7 @@ namespace TelloCommander.Status
             {
                 token.ThrowIfCancellationRequested();
 
-                TelloUdpListener listener = new TelloUdpListener();
+                TelloUdpListener listener = new();
                 listener.Connect(port);
 
                 Sequence = 1;

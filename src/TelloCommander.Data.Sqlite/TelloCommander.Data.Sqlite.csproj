@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <PackageId>TelloCommander.Data.Sqlite</PackageId>
+    <ReleaseVersion>1.0.0.7</ReleaseVersion>
+    <PackageVersion>1.0.0.7</PackageVersion>
+    <PackOnBuild>true</PackOnBuild>
+    <Authors>Dave Walker</Authors>
+    <Copyright>Copyright (c) 2020, 2021, 2023 Dave Walker</Copyright>
+    <Owners>Dave Walker</Owners>
+    <PackageReleaseNotes>Dependency updates</PackageReleaseNotes>
+    <PackageTags>TelloCommander Tello Database Collector Sqlite</PackageTags>
+    <Title>TelloCommander Drone Telemetry Sqlite Database</Title>
+    <Description>TelloCommander Drone Telemetry Sqlite Database</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TelloCommander.Data\TelloCommander.Data.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+  </ItemGroup>
+</Project>

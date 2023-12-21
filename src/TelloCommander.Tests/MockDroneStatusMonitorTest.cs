@@ -83,10 +83,12 @@ namespace TelloCommander.Tests
             return File.ReadAllLines(file);
         }
 
-        private void ValidateFileContent(string[] lines)
+        private static void ValidateFileContent(string[] lines)
         {
-            Regex header = new Regex(@"^([0-9a-zA-Z_ .]+,){18}[0-9a-zA-Z_ .]+$");
-            Regex regex = new Regex(@"^[0-9]{4}(-[0-9]{2}){2} ([0-9]{2}:){2}[0-9]{2}.[0-9]{3},(""[0-9.]+"",){17}""""$");
+#pragma warning disable SYSLIB1045
+            Regex header = new(@"^([0-9a-zA-Z_ .]+,){18}[0-9a-zA-Z_ .]+$");
+            Regex regex = new(@"^[0-9]{4}(-[0-9]{2}){2} ([0-9]{2}:){2}[0-9]{2}.[0-9]{3},(""[0-9.]+"",){17}""""$");
+#pragma warning restore SYSLIB1045
             for (int i = 0; i < lines.Length; i++)
             {
                 bool matches = (i ==0) ?  header.Matches(lines[i]).Any() : regex.Matches(lines[i]).Any();

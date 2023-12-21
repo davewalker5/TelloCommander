@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TelloCommander.Response;
 
 namespace TelloCommander.Tests
 {
     [TestClass]
+    [SuppressMessage("GeneratedRegex", "SYSLIB1045:Convert to 'GeneratedRegexAttribute'.", Justification = "<Pending>")]
     public class ResponseParserTest
     {
         [TestMethod]
@@ -19,9 +21,9 @@ namespace TelloCommander.Tests
         [TestMethod]
         public void ParseToRangeTest()
         {
-            (decimal minimum, decimal maximum) range = ResponseParser.ParseToRange("60~61C");
-            Assert.AreEqual(60, range.minimum);
-            Assert.AreEqual(61, range.maximum);
+            (decimal minimum, decimal maximum) = ResponseParser.ParseToRange("60~61C");
+            Assert.AreEqual(60, minimum);
+            Assert.AreEqual(61, maximum);
         }
 
         [TestMethod]
@@ -44,11 +46,11 @@ namespace TelloCommander.Tests
             Assert.AreEqual(31, acceleration.Y);
             Assert.AreEqual(-994, acceleration.Z);
 
-            Regex regex = new Regex(@"^X: -?[0-9]+.[0-9]+ Y: -?[0-9]+.[0-9]+ Z: -?[0-9]+.[0-9]+$");
+            Regex regex = new(@"^X: -?[0-9]+.[0-9]+ Y: -?[0-9]+.[0-9]+ Z: -?[0-9]+.[0-9]+$");
             bool matches = regex.Matches(text).Any();
             Assert.IsTrue(matches);
 
-            regex = new Regex(@"^""-?[0-9]+.[0-9]+"",""-?[0-9]+.[0-9]+"",""-?[0-9]+.[0-9]+""$");
+            regex = new(@"^""-?[0-9]+.[0-9]+"",""-?[0-9]+.[0-9]+"",""-?[0-9]+.[0-9]+""$");
             matches = regex.Matches(csv).Any();
             Assert.IsTrue(matches);
         }
@@ -64,11 +66,11 @@ namespace TelloCommander.Tests
             Assert.AreEqual(-36, attitude.Roll);
             Assert.AreEqual(-51, attitude.Yaw);
 
-            Regex regex = new Regex(@"^Pitch: -?[0-9]+ Roll: -?[0-9]+ Yaw: -?[0-9]+$");
+            Regex regex = new(@"^Pitch: -?[0-9]+ Roll: -?[0-9]+ Yaw: -?[0-9]+$");
             bool matches = regex.Matches(text).Any();
             Assert.IsTrue(matches);
 
-            regex = new Regex(@"^""-?[0-9]+"",""-?[0-9]+"",""-?[0-9]+""$");
+            regex = new(@"^""-?[0-9]+"",""-?[0-9]+"",""-?[0-9]+""$");
             matches = regex.Matches(csv).Any();
             Assert.IsTrue(matches);
         }
@@ -83,11 +85,11 @@ namespace TelloCommander.Tests
             Assert.AreEqual(60, temperature.Minimum);
             Assert.AreEqual(61, temperature.Maximum);
 
-            Regex regex = new Regex(@"^Minimum: -?[0-9]+ Maximum: -?[0-9]+$");
+            Regex regex = new(@"^Minimum: -?[0-9]+ Maximum: -?[0-9]+$");
             bool matches = regex.Matches(text).Any();
             Assert.IsTrue(matches);
 
-            regex = new Regex(@"^""-?[0-9]+"",""-?[0-9]+""$");
+            regex = new(@"^""-?[0-9]+"",""-?[0-9]+""$");
             matches = regex.Matches(csv).Any();
             Assert.IsTrue(matches);
         }
@@ -102,11 +104,11 @@ namespace TelloCommander.Tests
             Assert.AreEqual(60, temperature.Minimum);
             Assert.AreEqual(61, temperature.Maximum);
 
-            Regex regex = new Regex(@"^Minimum: -?[0-9]+ Maximum: -?[0-9]+$");
+            Regex regex = new(@"^Minimum: -?[0-9]+ Maximum: -?[0-9]+$");
             bool matches = regex.Matches(text).Any();
             Assert.IsTrue(matches);
 
-            regex = new Regex(@"^""-?[0-9]+"",""-?[0-9]+""$");
+            regex = new(@"^""-?[0-9]+"",""-?[0-9]+""$");
             matches = regex.Matches(csv).Any();
             Assert.IsTrue(matches);
         }
@@ -122,11 +124,11 @@ namespace TelloCommander.Tests
             Assert.AreEqual(11, speed.Y);
             Assert.AreEqual(12, speed.Z);
 
-            Regex regex = new Regex(@"^X: -?[0-9]+.[0-9]+ Y: -?[0-9]+.[0-9]+ Z: -?[0-9]+.[0-9]+$");
+            Regex regex = new(@"^X: -?[0-9]+.[0-9]+ Y: -?[0-9]+.[0-9]+ Z: -?[0-9]+.[0-9]+$");
             bool matches = regex.Matches(text).Any();
             Assert.IsTrue(matches);
 
-            regex = new Regex(@"^""-?[0-9]+.[0-9]+"",""-?[0-9]+.[0-9]+"",""-?[0-9]+.[0-9]+""$");
+            regex = new(@"^""-?[0-9]+.[0-9]+"",""-?[0-9]+.[0-9]+"",""-?[0-9]+.[0-9]+""$");
             matches = regex.Matches(csv).Any();
             Assert.IsTrue(matches);
         }

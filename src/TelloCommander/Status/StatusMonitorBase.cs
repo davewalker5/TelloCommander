@@ -127,7 +127,7 @@ namespace TelloCommander.Status
         /// </summary>
         private void WriteStatusRecord()
         {
-            _output.Write($"{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff")},");
+            _output.Write($"{DateTime.Now:yyyy-MM-dd hh:mm:ss.fff},");
             _output.Write($"\"{Sequence}\",");
             _output.Write($"{Attitude.ToCsv()},");
             _output.Write($"{Speed.ToCsv()},");

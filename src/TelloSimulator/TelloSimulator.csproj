@@ -2,9 +2,16 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ReleaseVersion>1.0.0.7</ReleaseVersion>
+    <FileVersion>1.0.0.7</FileVersion>
+    <ProductVersion>1.0.0.7</ProductVersion>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TelloCommander\TelloCommander.csproj" />

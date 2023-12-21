@@ -1,5 +1,5 @@
 # TelloCommander
- 
+
 [![Build Status](https://github.com/davewalker5/TelloCommander/workflows/.NET%20Core%20CI%20Build/badge.svg)](https://github.com/davewalker5/TelloCommander/actions)
 [![GitHub issues](https://img.shields.io/github/issues/davewalker5/TelloCommander)](https://github.com/davewalker5/TelloCommander/issues)
 [![Coverage Status](https://coveralls.io/repos/github/davewalker5/TelloCommander/badge.svg?branch=master)](https://coveralls.io/github/davewalker5/TelloCommander?branch=master)
@@ -8,6 +8,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/davewalker5/TelloCommander/blob/master/LICENSE)
 [![Language](https://img.shields.io/badge/language-c%23-blue.svg)](https://github.com/davewalker5/TelloCommander/)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/davewalker5/TelloCommander)](https://github.com/davewalker5/TelloCommander/)
+
+> **_NOTE:_** The separate Tello Commander Database and demo application repositories have been merged with the TelloCommander repository. The intention is to update the README and the Wiki to provide further guidance on the merged repository structure
 
 ## About
 
@@ -22,24 +24,22 @@ Tello Commander is a C# API for controlling a Tello drone, offering the followin
 - Capture of drone telemetry information to CSV
 - Capture of drone telemetry to a SQL database
 
-## Version 1.0.0.5
+The following database types are supported:
 
-Release 1.0.0.5 of TelloCommander introduces the ability to stream drone telemetry to a SQL database for subsequent analysis and splits the project into the following repos/libraries/NuGet packages:
+| Type      | Purpose                                                                          |
+| --------- | -------------------------------------------------------------------------------- |
+| In Memory | In-memory database for transient storage and primarily targetted at unit testing |
+| SQLite    | Permanent storage in a SQLite database                                           |
 
-| Repo | NuGet Package | Purpose |
-| --- | --- | --- |
-| [TelloCommander](https://github.com/davewalker5/TelloCommander/) | [TelloCommander](https://www.nuget.org/packages/TelloCommander/) | Core Tello control API |
-| [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/) | [TelloCommander.Data](https://www.nuget.org/packages/TelloCommander.Data/) | Core SQL telemetry capture API |
-| [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/) | [TelloCommander.Data.InMemory](https://www.nuget.org/packages/TelloCommander.Data.InMemory/) | EF Core database context for capturing telemetry to an in-memory database |
-| [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/) | [TelloCommander.Data.Sqlite](https://www.nuget.org/packages/TelloCommander.Data.Sqlite/) | EF Core database context for capturing telemetry to a SQLite database |
-| [TelloCommanderConsole](https://github.com/davewalker5/TelloCommanderConsole) | [TelloCommander.CommandLine](https://www.nuget.org/packages/TelloCommander.CommandLine/) | Basis for a command-line controller for the Tello with example application |
+A demonstration console application is provided to demonstrate use of the API to connect to and communicate with a drone. It provides the following connection types:
 
-Release 1.0.0.5 also changed the location of the following classes and, with it, the repo/library/NuGet package that they reside in:
+| Type      | Purpose                                                                               |
+| --------- | ------------------------------------------------------------------------------------- |
+| Mock      | Uses a mock that simulates responses from the drone without establishing a connection |
+| Simulator | The application is connected to the simulator, running on the same machine            |
+| Drone     | The application is connected to a real drone                                          |
 
-| Class | Original Namespace | New Namespace |
-| --- | --- | --- |
-| ConsoleCommander | TelloCommander.Commander | TelloCommander.CommandLine |
-| ConsoleCommanderWrapper | TelloCommander.Commander | TelloCommander.CommandLine |
+It is based on the ConsoleCommander class provided by the API.
 
 ## Getting Started
 
@@ -89,7 +89,7 @@ while (!isEmpty);
 commander.Disconnect();
 ```
 
-The argument passed to the "ReadStandardDictionary" is the Tello API version number and defines the set of available commands (see the [wiki](https://github.com/davewalker5/TelloCommander/wiki/Home)) for more  details.
+The argument passed to the "ReadStandardDictionary" is the Tello API version number and defines the set of available commands (see the [wiki](https://github.com/davewalker5/TelloCommander/wiki/Home)) for more details.
 
 The following is example output for a simple takeoff, height query and landing:
 
@@ -111,7 +111,7 @@ More complete information on the capabilities and use of the API are provided in
 
 ## Authors
 
-- **Dave Walker** - *Initial work* - [LinkedIn](https://www.linkedin.com/in/davewalker5/)
+- **Dave Walker** - _Initial work_ - [LinkedIn](https://www.linkedin.com/in/davewalker5/)
 
 ## Feedback
 
