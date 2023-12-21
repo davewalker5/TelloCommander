@@ -22,24 +22,14 @@ Tello Commander is a C# API for controlling a Tello drone, offering the followin
 - Capture of drone telemetry information to CSV
 - Capture of drone telemetry to a SQL database
 
-## Version 1.0.0.5
+It includes companion libraries to extends the basic drone monitoring and status capture facilities with the ability to write drone telemetry information to a SQL database.
 
-Release 1.0.0.5 of TelloCommander introduces the ability to stream drone telemetry to a SQL database for subsequent analysis and splits the project into the following repos/libraries/NuGet packages:
+The following database types are supported:
 
-| Repo                                                                          | NuGet Package                                                                                | Purpose                                                                    |
-| ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [TelloCommander](https://github.com/davewalker5/TelloCommander/)              | [TelloCommander](https://www.nuget.org/packages/TelloCommander/)                             | Core Tello control API                                                     |
-| [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/)          | [TelloCommander.Data](https://www.nuget.org/packages/TelloCommander.Data/)                   | Core SQL telemetry capture API                                             |
-| [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/)          | [TelloCommander.Data.InMemory](https://www.nuget.org/packages/TelloCommander.Data.InMemory/) | EF Core database context for capturing telemetry to an in-memory database  |
-| [TelloCommanderDb](https://github.com/davewalker5/TelloCommanderDb/)          | [TelloCommander.Data.Sqlite](https://www.nuget.org/packages/TelloCommander.Data.Sqlite/)     | EF Core database context for capturing telemetry to a SQLite database      |
-| [TelloCommanderConsole](https://github.com/davewalker5/TelloCommanderConsole) | [TelloCommander.CommandLine](https://www.nuget.org/packages/TelloCommander.CommandLine/)     | Basis for a command-line controller for the Tello with example application |
-
-Release 1.0.0.5 also changed the location of the following classes and, with it, the repo/library/NuGet package that they reside in:
-
-| Class                   | Original Namespace       | New Namespace              |
-| ----------------------- | ------------------------ | -------------------------- |
-| ConsoleCommander        | TelloCommander.Commander | TelloCommander.CommandLine |
-| ConsoleCommanderWrapper | TelloCommander.Commander | TelloCommander.CommandLine |
+| Type      | Purpose                                                                          |
+| --------- | -------------------------------------------------------------------------------- |
+| In Memory | In-memory database for transient storage and primarily targetted at unit testing |
+| SQLite    | Permanent storage in a SQLite database                                           |
 
 ## Getting Started
 
@@ -115,12 +105,9 @@ More complete information on the capabilities and use of the API are provided in
 
 ## Feedback
 
-<<<<<<< HEAD
 To file issues or suggestions, please use the [Issues](https://github.com/davewalker5/TelloCommander/issues) page for this project on GitHub.
-=======
-To file issues or suggestions, please use the [Issues](https://github.com/davewalker5/TelloCommanderDb/issues) page for this project on GitHub.
 
-> > > > > > > db/master
+To file issues or suggestions, please use the [Issues](https://github.com/davewalker5/TelloCommanderDb/issues) page for this project on GitHub.
 
 ## License
 
