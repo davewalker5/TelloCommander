@@ -9,6 +9,8 @@
 [![Language](https://img.shields.io/badge/language-c%23-blue.svg)](https://github.com/davewalker5/TelloCommander/)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/davewalker5/TelloCommander)](https://github.com/davewalker5/TelloCommander/)
 
+> **_NOTE:_** The separate Tello Commander Database and demo application repositories have been merged with the TelloCommander repository. The README has been updated and the Wiki is being updated and the intention is to provide better "getting started" documentation as part of the updates
+
 ## About
 
 Tello Commander is a C# API for controlling a Tello drone, offering the following features:
