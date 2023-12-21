@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <PackageId>TelloCommander.CommandLine</PackageId>
+    <PackageVersion>1.0.0.9</PackageVersion>
+    <ReleaseVersion>1.0.0.9</ReleaseVersion>
+    <Authors>Dave Walker</Authors>
+    <Copyright>Copyright (c) 2020, 2023 Dave Walker</Copyright>
+    <Owners>Dave Walker</Owners>
+    <PackageProjectUrl>https://github.com/davewalker5/TelloCommanderConsole</PackageProjectUrl>
+    <PackageReleaseNotes>Dependency updates</PackageReleaseNotes>
+    <Summary>C# command line utilities for controlling a Tello drone</Summary>
+    <PackageTags>Tello API Console CommandLine</PackageTags>
+    <Title>TelloCommander.CommandLine</Title>
+    <Description>C# command line utilities for controlling a Tello drone</Description>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Content\TelloCommanderCommandLineLicense.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TelloCommander.Data.Sqlite\TelloCommander.Data.Sqlite.csproj" />
+    <ProjectReference Include="..\TelloCommander.Data\TelloCommander.Data.csproj" />
+    <ProjectReference Include="..\TelloCommander\TelloCommander.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="C:\Users\david\.nuget\packages\tellocommander\1.0.0.7\contentFiles\any\net6.0\Content\CommandDictionary-1.3.0.0.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\david\.nuget\packages\tellocommander\1.0.0.7\contentFiles\any\net6.0\Content\CommandDictionary-2.0.0.0.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="C:\Users\david\.nuget\packages\tellocommander\1.0.0.7\contentFiles\any\net6.0\Content\CommandDictionary.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

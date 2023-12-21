@@ -4,7 +4,6 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <ReleaseVersion>1.0.0.7</ReleaseVersion>
-    <ReleaseVersion>1.0.0.7</ReleaseVersion>
     <FileVersion>1.0.0.7</FileVersion>
     <ProductVersion>1.0.0.7</ProductVersion>
     <IsPackable>false</IsPackable>

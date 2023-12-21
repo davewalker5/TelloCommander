@@ -16,6 +16,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloCommander.Data.Migrati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloCommander.Data.Sqlite", "TelloCommander.Data.Sqlite\TelloCommander.Data.Sqlite.csproj", "{29E92DEE-42C1-431A-BA40-4832809C4815}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloCommander.CommandLine", "TelloCommander.CommandLine\TelloCommander.CommandLine.csproj", "{A394460C-B6A4-46B6-BF8E-39BA1B3248CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloCommander.Demo", "TelloCommander.Demo\TelloCommander.Demo.csproj", "{E7B70087-0A88-4104-BDC5-76D9D34AAB50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,9 +54,20 @@ Global
 		{29E92DEE-42C1-431A-BA40-4832809C4815}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29E92DEE-42C1-431A-BA40-4832809C4815}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29E92DEE-42C1-431A-BA40-4832809C4815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A394460C-B6A4-46B6-BF8E-39BA1B3248CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A394460C-B6A4-46B6-BF8E-39BA1B3248CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A394460C-B6A4-46B6-BF8E-39BA1B3248CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A394460C-B6A4-46B6-BF8E-39BA1B3248CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7B70087-0A88-4104-BDC5-76D9D34AAB50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7B70087-0A88-4104-BDC5-76D9D34AAB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7B70087-0A88-4104-BDC5-76D9D34AAB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7B70087-0A88-4104-BDC5-76D9D34AAB50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {550CA541-BEF7-4369-BBED-3ACAECC3FB7B}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		description = C# API for controlling a Tello Drone

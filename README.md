@@ -29,6 +29,16 @@ The following database types are supported:
 | In Memory | In-memory database for transient storage and primarily targetted at unit testing |
 | SQLite    | Permanent storage in a SQLite database                                           |
 
+A demonstration console application is provided to demonstrate use of the API to connect to and communicate with a drone. It provides the following connection types:
+
+| Type      | Purpose                                                                               |
+| --------- | ------------------------------------------------------------------------------------- |
+| Mock      | Uses a mock that simulates responses from the drone without establishing a connection |
+| Simulator | The application is connected to the simulator, running on the same machine            |
+| Drone     | The application is connected to a real drone                                          |
+
+It is based on the ConsoleCommander class provided by the API.
+
 ## Getting Started
 
 Once the API is referenced by a project, you should include the following "using" statements to import the necessary types:
