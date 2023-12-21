@@ -105,8 +105,6 @@ More complete information on the capabilities and use of the API are provided in
 
 To file issues or suggestions, please use the [Issues](https://github.com/davewalker5/TelloCommander/issues) page for this project on GitHub.
 
-To file issues or suggestions, please use the [Issues](https://github.com/davewalker5/TelloCommanderDb/issues) page for this project on GitHub.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
