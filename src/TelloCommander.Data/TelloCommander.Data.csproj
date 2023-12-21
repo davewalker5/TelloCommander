@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <PackageId>TelloCommander.Data</PackageId>
+    <PackageVersion>1.0.0.8</PackageVersion>
+    <ReleaseVersion>1.0.0.8</ReleaseVersion>
+    <PackOnBuild>true</PackOnBuild>
+    <Authors>Dave Walker</Authors>
+    <Copyright>Copyright (c) 2020, 2021, 2023 Dave Walker</Copyright>
+    <Owners>Dave Walker</Owners>
+    <PackageReleaseNotes>Dependency updates</PackageReleaseNotes>
+    <Summary>Database Collector for TelloCommander Drone Telemetry</Summary>
+    <PackageTags>Tello TelloCommander Data Collector</PackageTags>
+    <Title>Database Collector for TelloCommander Drone Telemetry</Title>
+    <Description>Database Collector for TelloCommander Drone Telemetry</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TelloCommander\TelloCommander.csproj" />
+  </ItemGroup>
+</Project>

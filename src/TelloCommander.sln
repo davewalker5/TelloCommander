@@ -1,11 +1,20 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander", "TelloCommander\TelloCommander.csproj", "{A8524375-6BAD-4680-8DEA-BDA1E3A2C69C}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloCommander", "TelloCommander\TelloCommander.csproj", "{A8524375-6BAD-4680-8DEA-BDA1E3A2C69C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloCommander.Tests", "TelloCommander.Tests\TelloCommander.Tests.csproj", "{1B359150-4F67-4EC9-9B8A-BFEB6730D07C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloCommander.Tests", "TelloCommander.Tests\TelloCommander.Tests.csproj", "{1B359150-4F67-4EC9-9B8A-BFEB6730D07C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloSimulator", "TelloSimulator\TelloSimulator.csproj", "{E90A9773-CEF9-44BA-96B5-ADEBD0F80374}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloSimulator", "TelloSimulator\TelloSimulator.csproj", "{E90A9773-CEF9-44BA-96B5-ADEBD0F80374}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloCommander.Data", "TelloCommander.Data\TelloCommander.Data.csproj", "{64F89366-6FA1-4061-890C-DED9DBD6632D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloCommander.Data.InMemory", "TelloCommander.Data.InMemory\TelloCommander.Data.InMemory.csproj", "{4B54BB79-DB6F-475C-BCEC-7C47B6926631}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloCommander.Data.Migrations", "TelloCommander.Data.Migrations\TelloCommander.Data.Migrations.csproj", "{2EC3581B-EAF3-4D83-856F-1542D1D72247}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelloCommander.Data.Sqlite", "TelloCommander.Data.Sqlite\TelloCommander.Data.Sqlite.csproj", "{29E92DEE-42C1-431A-BA40-4832809C4815}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +34,25 @@ Global
 		{E90A9773-CEF9-44BA-96B5-ADEBD0F80374}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E90A9773-CEF9-44BA-96B5-ADEBD0F80374}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E90A9773-CEF9-44BA-96B5-ADEBD0F80374}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5BA19410-B7AF-44B0-A7C4-0BF724B71195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BA19410-B7AF-44B0-A7C4-0BF724B71195}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5BA19410-B7AF-44B0-A7C4-0BF724B71195}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5BA19410-B7AF-44B0-A7C4-0BF724B71195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64F89366-6FA1-4061-890C-DED9DBD6632D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64F89366-6FA1-4061-890C-DED9DBD6632D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64F89366-6FA1-4061-890C-DED9DBD6632D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64F89366-6FA1-4061-890C-DED9DBD6632D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B54BB79-DB6F-475C-BCEC-7C47B6926631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B54BB79-DB6F-475C-BCEC-7C47B6926631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B54BB79-DB6F-475C-BCEC-7C47B6926631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B54BB79-DB6F-475C-BCEC-7C47B6926631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EC3581B-EAF3-4D83-856F-1542D1D72247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC3581B-EAF3-4D83-856F-1542D1D72247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC3581B-EAF3-4D83-856F-1542D1D72247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC3581B-EAF3-4D83-856F-1542D1D72247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29E92DEE-42C1-431A-BA40-4832809C4815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E92DEE-42C1-431A-BA40-4832809C4815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E92DEE-42C1-431A-BA40-4832809C4815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E92DEE-42C1-431A-BA40-4832809C4815}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		description = C# API for controlling a Tello Drone
