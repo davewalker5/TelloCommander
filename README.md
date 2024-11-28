@@ -111,7 +111,7 @@ More complete information on the capabilities and use of the API are provided in
 
 ## Authors
 
-- **Dave Walker** - _Initial work_ - [LinkedIn](https://www.linkedin.com/in/davewalker5/)
+- **Dave Walker** - _Initial work_
 
 ## Feedback
 
